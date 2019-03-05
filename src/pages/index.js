@@ -1,35 +1,53 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import '../styles/index.css';
-import { Container, Hero, Title, Column } from 'rbx';
+import { Hero, Title, Column } from 'rbx';
 import Layout from '../components/layout';
 import ProjectPreview from '../components/projectPreview';
-import Image from '../components/image';
 import SEO from '../components/seo';
 
 const Home = () => {
 	const data = useStaticQuery(graphql`
-    {
-      allProjectsJson {
-        edges {
-          node {
-            title
-            slug
-            description
-            image {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+	    {
+		allSanityProject(
+			sort: {
+			fields: [publishedAt]
+			order: DESC
+			}
+		) {
+			edges {
+				node {
+					title
+					slug {
+						current
+					}
+					description
+					url  
+					skills {
+						title
+					}
+					mainImage {
+						asset {
+							fluid {
+							...GatsbySanityImageFluid
+							}
+						}
+					}
+				}
+			}
+		}
+		allSanityAuthor {
+			edges {
+				node {
+					name
+				}
+			}
+		}
+	}`);
 
-	const projects = data.allProjectsJson.edges;
+	//console.log(data);
+	const projects = data.allSanityProject.edges;
+	const author = data.allSanityAuthor.edges[0].node.name;
 	return (
 		<Layout>
 			<SEO title='Home' keywords={['gatsby', 'application', 'react']} />
@@ -37,7 +55,8 @@ const Home = () => {
 				<Column size='one-half'>
 					<Hero color='primary' gradient>
 						<Hero.Body>
-							<Title>Chris Brannen</Title>
+							<Title>Hi <span role='img' aria-label='wave emoji'>👋</span></Title>
+							<Title>I'm {author}</Title>
 						</Hero.Body>
 					</Hero>
 				</Column>
@@ -46,8 +65,8 @@ const Home = () => {
 					{projects.map(({ node: project }) => {
 						const title = project.title;
 						const description = project.description;
-						const slug = project.slug;
-						const imageData = project.image.childImageSharp.fluid;
+						const slug = project.slug.current;
+						const imageData = project.mainImage.asset.fluid;
 
 						return (
 							<ProjectPreview

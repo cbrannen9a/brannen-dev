@@ -2,21 +2,19 @@ module.exports = {
 	siteMetadata: {
 		title: 'Brannen.dev',
 		description: 'Blog and Portfolio by Chris Brannen.',
-		author: '@cbrannen9a',
+		author: 'Chris Brannen',
 		social: {
 			twitter: 'cbrannen9a',
 		},
 	},
 	plugins: [
-		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
 		{
-			resolve: 'gatsby-source-filesystem',
+			resolve: 'gatsby-source-sanity',
 			options: {
-				name: 'project',
-				path: './content'
+				projectId: 'o44u55ke',
+				dataset: 'production',
+				watchMode: true
 			}
-		},
-		'gatsby-transformer-json'
+		}
 	]
 };

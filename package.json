@@ -16,6 +16,7 @@
 		"gatsby-remark-prismjs": "^3.2.4",
 		"gatsby-remark-responsive-iframe": "^2.0.9",
 		"gatsby-source-filesystem": "^2.0.23",
+		"gatsby-source-sanity": "^1.1.2",
 		"gatsby-transformer-json": "^2.1.8",
 		"gatsby-transformer-remark": "^2.3.0",
 		"gatsby-transformer-sharp": "^2.1.15",
@@ -53,9 +54,10 @@
 		"build": "gatsby build",
 		"develop": "gatsby develop -o",
 		"format": "prettier --write src/**/*.{js,jsx}",
-		"start": "npm run develop",
+		"start": "yarn develop",
 		"serve": "gatsby serve",
-		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+		"deploy": "yarn build && firebase deploy --only hosting"
 	},
 	"repository": {
 		"type": "git",

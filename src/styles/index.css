@@ -280,13 +280,13 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #14a789;
+  color: #8e44ad;
   cursor: pointer;
   text-decoration: none; }
   a strong {
     color: currentColor; }
   a:hover {
-    color: #17be9c; }
+    color: #6b3483; }
 
 code {
   background-color: #f9f5fb;
@@ -2158,8 +2158,7 @@ a.box:active {
     width: 100%; }
   .input.is-inline,
   .textarea.is-inline {
-    display: inline;
-    width: auto; }
+    display: inline;}
 
 .input.is-rounded {
   border-radius: 290486px;
@@ -3991,6 +3990,7 @@ a.list-item {
   flex-direction: column;
   max-height: calc(100vh - 40px);
   overflow: hidden;
+  overflow-y: visible;
   -ms-overflow-y: visible; }
 
 .modal-card-head,
