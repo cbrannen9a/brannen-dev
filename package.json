@@ -12,8 +12,14 @@
 		"gatsby-plugin-offline": "^2.0.24",
 		"gatsby-plugin-react-helmet": "^3.0.7",
 		"gatsby-plugin-sharp": "^2.0.23",
+		"gatsby-remark-images": "^3.0.5",
+		"gatsby-remark-prismjs": "^3.2.4",
+		"gatsby-remark-responsive-iframe": "^2.0.9",
 		"gatsby-source-filesystem": "^2.0.23",
+		"gatsby-transformer-json": "^2.1.8",
+		"gatsby-transformer-remark": "^2.3.0",
 		"gatsby-transformer-sharp": "^2.1.15",
+		"prismjs": "^1.15.0",
 		"prop-types": "^15.7.2",
 		"rbx": "^2.1.0",
 		"react": "^16.8.3",
@@ -45,7 +51,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "gatsby build",
-		"develop": "gatsby develop",
+		"develop": "gatsby develop -o",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "npm run develop",
 		"serve": "gatsby serve",
@@ -53,9 +59,9 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/gatsbyjs/gatsby-starter-default"
+		"url": "https://github.com/cbrannen9a/brannen-dev"
 	},
 	"bugs": {
-		"url": "https://github.com/gatsbyjs/gatsby/issues"
+		"url": "https://github.com/cbrannen9a/brannen-dev/issues"
 	}
 }
