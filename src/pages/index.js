@@ -44,6 +44,9 @@ const Home = () => {
 				node {
 					name
 					_rawBio
+					twitter
+					github
+					email
 				}
 			}
 		}

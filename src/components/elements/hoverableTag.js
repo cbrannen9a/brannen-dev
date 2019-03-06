@@ -4,7 +4,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import ToolTip from './toolTip';
 
 const HoverableTag = ({ title, description }) => (
-	<div style={{ margin: '4px' }}>
+	<div style={{ marginRight: '4px' }}>
 		<ToolTip
 			direction={'bottom'}
 			message={<BlockContent blocks={description} />}>

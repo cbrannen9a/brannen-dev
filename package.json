@@ -5,6 +5,11 @@
 	"version": "0.1.0",
 	"author": "Chris Brannen <chris@brannen.dev>",
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.15",
+		"@fortawesome/free-brands-svg-icons": "^5.7.2",
+		"@fortawesome/free-regular-svg-icons": "^5.7.2",
+		"@fortawesome/free-solid-svg-icons": "^5.7.2",
+		"@fortawesome/react-fontawesome": "^0.1.4",
 		"@sanity/block-content-to-react": "^2.0.6",
 		"firebase": "^5.8.4",
 		"gatsby": "^2.1.19",
