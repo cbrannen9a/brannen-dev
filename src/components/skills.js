@@ -3,7 +3,7 @@ import { Tag } from 'rbx';
 import HoverableTag from './elements/hoverableTag';
 
 const Skills = ({ skills }) => (
-	<Tag.Group>
+	<Tag.Group style={{ marginTop: '5px' }}>
 		{skills && skills.map(s =>
 			<HoverableTag
 				key={s.id}

@@ -1,13 +1,31 @@
 
+.bio {
+	margin-top: 10px;
+	margin-bottom: 20px; 
+}
+
+.project-grid {
+	margin: 8px;
+	padding: 8px;
+	text-align: center;
+}
+
+.project-grid-header {
+	text-align: left;
+}
+
 .project-preview {
   margin-bottom: 2rem;
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  border-radius: 3px;
+  padding: 10px;
 }
 
 @media (min-width: 600px) {
   .project-preview {
     flex: 1 50%;
-    max-width: calc(50% - 0.5rem);
+	max-width: calc(80% - 0.5rem);
   }
 }
 

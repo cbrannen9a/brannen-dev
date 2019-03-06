@@ -4,8 +4,8 @@ import ProjectPreview from './projectPreview';
 
 const ProjectGrid = ({ projects }) => {
 	return (
-		<div style={{ marginTop: '10px' }}>
-			<Title>Projects</Title>
+		<div className='project-grid'>
+			<Title className='project-grid-header'>Projects</Title>
 			{
 				projects.map(({ node: project }) => {
 					const title = project.title;
