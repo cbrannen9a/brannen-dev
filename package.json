@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"author": "Chris Brannen <chris@brannen.dev>",
 	"dependencies": {
+		"@sanity/block-content-to-react": "^2.0.6",
 		"firebase": "^5.8.4",
 		"gatsby": "^2.1.19",
 		"gatsby-image": "^2.0.30",
@@ -54,7 +55,7 @@
 		"build": "gatsby build",
 		"develop": "gatsby develop -o",
 		"format": "prettier --write src/**/*.{js,jsx}",
-		"start": "yarn develop",
+		"start": "GATSBY_GRAPHQL_IDE=playground yarn develop",
 		"serve": "gatsby serve",
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
 		"deploy": "yarn build && firebase deploy --only hosting"

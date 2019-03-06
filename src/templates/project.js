@@ -8,7 +8,8 @@ export const query = graphql`
     sanityProject(slug: { current: { eq: $slug } }) {
 	  title  
 	  description
-	  url    
+	  url 
+	  _rawBody
       mainImage {
         asset {
           fluid {
@@ -26,6 +27,7 @@ const ProjectTemplate = ({ data }) => {
 	const description = project.description;
 	const imageData = project.mainImage.asset.fluid;
 	const url = project.url;
+	const body = project._rawBody;
 
 	return (
 		<Layout>
@@ -34,6 +36,7 @@ const ProjectTemplate = ({ data }) => {
 				description={description}
 				imageData={imageData}
 				url={url}
+				body={body}
 			/>
 		</Layout>
 	);

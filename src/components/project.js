@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
+import { Button } from 'rbx';
+import BlockContent from '@sanity/block-content-to-react';
 
-const Project = ({ title, description, url, imageData }) => (
+const Project = ({ title, url, imageData, body }) => (
 	<div className='project'>
 		<h1>{title}</h1>
 		<Image fluid={imageData} alt={title} />
-		<p>{description}</p>
+		<BlockContent blocks={body} />
 		<p>
-			<a href={url}>View this project online &rarr;</a>
+			<Button as='a' color='info' href={url}>View this project online &rarr;</Button>
 		</p>
 		<p>
-			<Link to='/'>&larr; back to all projects</Link>
+			<Button as={Link} color='light' to='/'>&larr; back to all projects</Button>
 		</p>
 	</div>
 );
