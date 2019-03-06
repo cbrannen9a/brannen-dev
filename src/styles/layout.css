@@ -1,0 +1,40 @@
+
+.project-preview {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .project-preview {
+    flex: 1 50%;
+    max-width: calc(50% - 0.5rem);
+  }
+}
+
+.project-preview h2 {
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
+}
+
+.project-preview h2 a {
+  color: #222;
+  text-decoration: none;
+}
+
+.project-preview p {
+  margin-top: 0.5rem;
+}
+
+.project {
+  width: 100%;
+}
+
+.project h3,
+.project img,
+.project p {
+  margin-top: 1rem;
+}
+
+.project ul {
+  margin-top: 0.5rem;
+}
