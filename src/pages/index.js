@@ -39,30 +39,34 @@ const Home = () => {
 				}
 			}
 		}
-		allSanityAuthor {
-			edges {
-				node {
-					name
-					_rawBio
-					twitter
-					github
-					email
-				}
-			}
-		}
-		allSanitySkills {
+		sanityAuthor(name:{eq: "Chris Brannen"}){
+    		name
+   			 _rawBio
+			twitter
+			github
+			email
+  		}
+		allSanitySkills(
+    sort: {
+      fields: [group, subGroup, order]
+      order: ASC
+    }
+  )  {
           edges{
             node{
               id
               title
-              _rawDescription
+			  _rawDescription
+			  group
+			  subGroup
+			  order
             }
           }
         }
 	}`);
 
 	const projects = data.allSanityProject.edges;
-	const author = data.allSanityAuthor.edges[0].node;
+	const author = data.sanityAuthor;
 	const skills = data.allSanitySkills.edges;
 
 	return (
