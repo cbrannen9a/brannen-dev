@@ -17,7 +17,7 @@ const ProjectPreview = ({ title, description, slug, imageData, skills }) => (
 		</h2>
 		<Button
 			as={Link}
-			color='info'
+			color='link'
 			to={`/${slug}/`}>
 			<FontAwesomeIcon
 				style={{ marginRight: '3px' }}

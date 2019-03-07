@@ -2,7 +2,7 @@ import React from 'react';
 import Linkable from './elements/linkable';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-const Links = ({ author }) => {
+const SocialLinks = ({ author }) => {
 	return (<>
 		<Linkable
 			link={author.github}
@@ -22,4 +22,4 @@ const Links = ({ author }) => {
 	</>);
 };
 
-export default Links;
+export default SocialLinks;

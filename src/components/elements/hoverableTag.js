@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tag } from 'rbx';
-import BlockContent from '@sanity/block-content-to-react';
+import BlockContent from './blockContent';
 import ToolTip from './toolTip';
 
 const HoverableTag = ({ title, description }) => (
