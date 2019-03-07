@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import { Button } from 'rbx';
-import BlockContent from './elements/blockContent';
+import BlockContent from '../elements/blockContent/blockContent';
 
 const Project = ({ title, url, imageData, body }) => (
 	<div className='project'>
@@ -17,5 +19,12 @@ const Project = ({ title, url, imageData, body }) => (
 		</p>
 	</div>
 );
+
+Project.propTypes = {
+	title: PropTypes.string.isRequired,
+	url: PropTypes.string.isRequired,
+	imageData: PropTypes.object.isRequired,
+	body: PropTypes.array.isRequired
+};
 
 export default Project;

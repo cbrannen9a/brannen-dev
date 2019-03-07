@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Tag } from 'rbx';
-import HoverableTag from './elements/hoverableTag';
+import HoverableTag from '../elements/hoverableTag/hoverableTag';
 
 const Skills = ({ skills }) => (
 	<Tag.Group style={{ marginTop: '5px' }}>
@@ -12,5 +14,9 @@ const Skills = ({ skills }) => (
 		)}
 	</Tag.Group>
 );
+
+Skills.propTypes = {
+	skills: PropTypes.array
+};
 
 export default Skills;

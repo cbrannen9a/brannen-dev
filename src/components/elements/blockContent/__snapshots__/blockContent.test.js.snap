@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockContent renders correctly 1`] = `
+<p>
+  test text
+  <strong>
+    test bold
+  </strong>
+  <em>
+    test italic
+  </em>
+</p>
+`;

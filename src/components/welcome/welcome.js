@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Hero, Title } from 'rbx';
-import Bio from './bio';
-import Skills from './skills';
-import SocialLinks from './socialLinks';
+import Bio from '../bio/bio';
+import Skills from '../skills/skills';
+import SocialLinks from '../socialLinks/socialLinks';
 
 const Welcome = ({ author, skills }) => {
 	const reMappedSkills = skills.map(({ node: skill }) => {
@@ -24,6 +26,11 @@ const Welcome = ({ author, skills }) => {
 			</Hero.Body>
 		</Hero>
 	);
+};
+
+Welcome.propTypes = {
+	author: PropTypes.object.isRequired,
+	skills: PropTypes.array.isRequired
 };
 
 export default Welcome;
