@@ -1,11 +1,13 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import '../styles/index.css';
+
 import { Column } from 'rbx';
-import Layout from '../components/layout';
+
+import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import Welcome from '../components/welcome';
-import ProjectGrid from '../components/projectGrid';
+import Welcome from '../components/welcome/welcome';
+import ProjectGrid from '../components/projectGrid/projectGrid';
 
 const Home = () => {
 	const data = useStaticQuery(graphql`

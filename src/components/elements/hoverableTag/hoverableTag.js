@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tag } from 'rbx';
-import BlockContent from '@sanity/block-content-to-react';
-import ToolTip from './toolTip';
+import BlockContent from '../blockContent/blockContent';
+import ToolTip from '../toolTip/toolTip';
 
 const HoverableTag = ({ title, description }) => (
 	<div style={{ marginRight: '4px' }}>
 		<ToolTip
-			direction={'bottom'}
 			message={<BlockContent blocks={description} />}>
 			<Tag>
 				{title}
@@ -14,5 +14,10 @@ const HoverableTag = ({ title, description }) => (
 		</ToolTip>
 	</div>
 );
+
+HoverableTag.propTypes = {
+	title: PropTypes.string.isRequired,
+	description: PropTypes.array.isRequired
+};
 
 export default HoverableTag;

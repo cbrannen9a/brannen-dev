@@ -1,25 +1,28 @@
 import React from 'react';
-import Linkable from './elements/linkable';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import PropTypes from 'prop-types';
 
-const Links = ({ author }) => {
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import Linkable from '../elements/linkable/linkable';
+
+const SocialLinks = ({ author }) => {
 	return (<>
 		<Linkable
 			link={author.github}
-			type='github'
 			name='GitHub'
 			icon={['fab', 'github']} />
 		<Linkable
 			link={author.twitter}
-			type='twitter'
 			name='Twitter'
 			icon={['fab', 'twitter']} />
 		<Linkable
 			link={author.email}
-			type='email'
 			name='Email'
 			icon={faEnvelope} />
 	</>);
 };
 
-export default Links;
+SocialLinks.propTypes = {
+	author: PropTypes.object.isRequired
+};
+
+export default SocialLinks;

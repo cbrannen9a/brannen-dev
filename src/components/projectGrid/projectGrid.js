@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from 'rbx';
-import ProjectPreview from './projectPreview';
+import ProjectPreview from '../projectPreview/projectPreview';
 
 const ProjectGrid = ({ projects }) => {
 	return (

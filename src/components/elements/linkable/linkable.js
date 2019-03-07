@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'rbx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Linkable = ({ link, type, name, icon }) => {
+const Linkable = ({ link, name, icon }) => {
 	return (
 		<Button
 			style={{ margin: '0px 5px 5px 5px' }}
@@ -17,6 +18,12 @@ const Linkable = ({ link, type, name, icon }) => {
 			{name}
 		</Button>
 	);
+};
+
+Linkable.propTypes = {
+	link: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	icon: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
 };
 
 export default Linkable;
