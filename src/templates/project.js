@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import SEO from '../components/seo';
 import Layout from '../components/layout/layout';
 import Project from '../components/project/project';
 
@@ -31,6 +32,7 @@ const ProjectTemplate = ({ data }) => {
 
 	return (
 		<Layout>
+			<SEO title={title} keywords={['gatsby', 'application', 'react']} />
 			<Project
 				title={title}
 				description={description}

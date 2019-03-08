@@ -4,7 +4,9 @@ exports[`Project renders correctly 1`] = `
 <div
   className="project"
 >
-  <h1>
+  <h1
+    className="title"
+  >
     Test Project
   </h1>
   <div

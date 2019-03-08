@@ -17,6 +17,7 @@ const Home = () => {
 			fields: [publishedAt]
 			order: DESC
 			}
+			limit: 3
 		) {
 			edges {
 				node {
@@ -79,7 +80,7 @@ const Home = () => {
 					<Welcome author={author} skills={skills} />
 				</Column>
 				<Column >
-					<ProjectGrid projects={projects} />
+					<ProjectGrid projects={projects} isMainPage={true} />
 				</Column>
 			</Column.Group>
 		</Layout>

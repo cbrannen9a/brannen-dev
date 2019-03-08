@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bio renders correctly 1`] = `
-<div
-  className="bio"
->
-  <p>
-    test text
-    <strong>
-      test bold
-    </strong>
-    <em>
-      test italic
-    </em>
-  </p>
+exports[`Bio renders to matchsnaphot 1`] = `
+<div>
+  <div
+    class="bio"
+  >
+    <p>
+      test text
+      <strong>
+        test bold
+      </strong>
+      <em>
+        test italic
+      </em>
+    </p>
+  </div>
 </div>
 `;
