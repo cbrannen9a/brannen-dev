@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
-import { Button } from 'rbx';
+import { Button,Title } from 'rbx';
 import BlockContent from '../elements/blockContent/blockContent';
 
 const Project = ({ title, url, imageData, body }) => (
 	<div className='project'>
-		<h1>{title}</h1>
+		<Title>{title}</Title>
 		<Image fluid={imageData} alt={title} />
 		<BlockContent blocks={body} />
 		<p>

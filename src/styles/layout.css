@@ -48,7 +48,12 @@
 }
 
 .project {
+  padding: 8px;
   width: 100%;
+}
+.project h1{
+	padding: 8px;
+	margin-bottom: 0px !important;
 }
 
 .project h3,

@@ -32,7 +32,7 @@ const ProjectTemplate = ({ data }) => {
 
 	return (
 		<Layout>
-			<SEO title='title' keywords={['gatsby', 'application', 'react']} />
+			<SEO title={title} keywords={['gatsby', 'application', 'react']} />
 			<Project
 				title={title}
 				description={description}
