@@ -1,7 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import {render} from 'react-testing-library';
 
 import Bio from './bio';
+
 const bio = [{
 	style: 'normal', _key: 'block1', _type: 'block', markDefs: [],
 	children: [
@@ -26,10 +27,9 @@ const bio = [{
 }];
 
 describe('Bio', () => {
-	it('renders correctly', () => {
-		const tree = renderer
-			.create(<Bio bio={bio} />)
-			.toJSON();
-		expect(tree).toMatchSnapshot();
+	test('renders to matchsnaphot', () => {
+		const {container} = render(<Bio bio={bio} />);
+	
+		expect(container).toMatchSnapshot();
 	});
 });
