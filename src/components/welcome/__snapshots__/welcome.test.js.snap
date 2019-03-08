@@ -10,7 +10,8 @@ exports[`Welcome renders correctly 1`] = `
     <h1
       className="title"
     >
-      Hi 
+      Hi
+       
       <span
         aria-label="wave emoji"
         role="img"
