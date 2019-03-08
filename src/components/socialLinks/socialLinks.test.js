@@ -9,10 +9,8 @@ library.add(fab);
 
 const author = { github: 'gitHub', twitter: 'twitter', email: 'email' };
 describe('SocialLinks', () => {
-	it('renders correctly', () => {
-		const tree = renderer
-			.create(<SocialLinks author={author} />)
-			.toJSON();
-		expect(tree).toMatchSnapshot();
-	});
+    it('renders correctly', () => {
+        const tree = renderer.create(<SocialLinks author={author} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
