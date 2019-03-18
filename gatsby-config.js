@@ -23,6 +23,12 @@ module.exports = {
                     include: /assets/
                 }
             }
+        },
+        {
+            resolve: 'gatsby-source-medium',
+            options: {
+                username: '@cbrannen'
+            }
         }
     ]
 };

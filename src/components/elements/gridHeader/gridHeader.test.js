@@ -1,13 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import GridHeader from './gridHeader';
 
-import ProjectGridHeader from './projectGridHeader';
-
-describe('ProjectGridHeader', () => {
+describe('GridHeader', () => {
     it('renders correctly', () => {
         const tree = renderer
             .create(
-                <ProjectGridHeader
+                <GridHeader
+                    title={'Test'}
                     link={'test'}
                     buttonColour={'link'}
                     buttonTitle={'test'}

@@ -1,13 +1,13 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import '../styles/index.css';
-
 import { Column } from 'rbx';
-
+import React from 'react';
 import Layout from '../components/layout/layout';
+import PostGrid from '../components/postGrid/postGrid';
+import ProjectGrid from '../components/projectGrid/projectGrid';
 import SEO from '../components/seo';
 import Welcome from '../components/welcome/welcome';
-import ProjectGrid from '../components/projectGrid/projectGrid';
+import '../styles/index.css';
+import { postResolver } from '../utils/postResolver';
 
 const Home = () => {
     const data = useStaticQuery(graphql`
@@ -60,6 +60,51 @@ const Home = () => {
                     }
                 }
             }
+            allSanityPost(
+                sort: { fields: [_createdAt], order: DESC }
+                limit: 3
+            ) {
+                edges {
+                    node {
+                        _createdAt
+                        title
+                        _rawBody
+                        slug {
+                            current
+                        }
+                        id
+                        mainImage {
+                            asset {
+                                fluid {
+                                    ...GatsbySanityImageFluid
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            allMediumPost(
+                sort: { fields: [createdAt], order: DESC }
+                limit: 3
+            ) {
+                edges {
+                    node {
+                        createdAt
+                        id
+                        title
+                        uniqueSlug
+                        virtuals {
+                            subtitle
+                            previewImage {
+                                imageId
+                            }
+                        }
+                        author {
+                            name
+                        }
+                    }
+                }
+            }
         }
     `);
 
@@ -67,15 +112,21 @@ const Home = () => {
     const author = data.sanityAuthor;
     const skills = data.allSanitySkills.edges;
 
+    const posts = postResolver({
+        medium: data.allMediumPost.edges,
+        sanity: data.allSanityPost.edges
+    });
+
     return (
         <Layout>
             <SEO title='Home' keywords={['gatsby', 'application', 'react']} />
             <Column.Group>
                 <Column size='one-half'>
                     <Welcome author={author} skills={skills} />
+                    <PostGrid posts={posts} isMainPage />
                 </Column>
                 <Column>
-                    <ProjectGrid projects={projects} isMainPage={true} />
+                    <ProjectGrid projects={projects} isMainPage />
                 </Column>
             </Column.Group>
         </Layout>

@@ -1,11 +1,11 @@
-import React from 'react';
 import { Link } from 'gatsby';
 import { Button, Title } from 'rbx';
+import React from 'react';
 
-const ProjectGrid = ({ link, buttonTitle, buttonColour }) => {
+const GridHeader = ({ title, link, buttonTitle, buttonColour }) => {
     return (
-        <Title className='project-grid-header'>
-            Projects
+        <Title className='grid-header'>
+            {title}
             <Button
                 style={{ marginLeft: '10px' }}
                 as={Link}
@@ -18,4 +18,4 @@ const ProjectGrid = ({ link, buttonTitle, buttonColour }) => {
     );
 };
 
-export default ProjectGrid;
+export default GridHeader;

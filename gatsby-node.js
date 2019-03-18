@@ -10,6 +10,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     }
                 }
             }
+            allSanityPost {
+                edges {
+                    node {
+                        slug {
+                            current
+                        }
+                    }
+                }
+            }
         }
     `);
 
@@ -26,6 +35,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             component: require.resolve('./src/templates/project.js'),
             context: {
                 slug: project.slug.current
+            }
+        });
+    });
+
+    const posts = result.data.allSanityPost.edges.map(({ node }) => node);
+
+    posts.forEach(post => {
+        actions.createPage({
+            path: `/${post.slug.current}/`,
+            component: require.resolve('./src/templates/post.js'),
+            context: {
+                slug: post.slug.current
             }
         });
     });
