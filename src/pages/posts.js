@@ -8,11 +8,12 @@ import { postResolver } from '../utils/postResolver';
 const Posts = () => {
     const data = useStaticQuery(graphql`
         {
-            allSanityPost(sort: { fields: [_createdAt], order: DESC }) {
+            allSanityPost(sort: { fields: [publishedAt], order: DESC }) {
                 edges {
                     node {
-                        _createdAt
+                        publishedAt
                         title
+                        description
                         _rawBody
                         slug {
                             current

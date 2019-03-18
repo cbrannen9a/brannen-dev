@@ -6,7 +6,7 @@ import React from 'react';
 import BlockContent from '../elements/blockContent/blockContent';
 
 const Project = ({ title, description, imageData, body }) => (
-    <div className='project'>
+    <div className='post'>
         <Title>{title}</Title>
         <p>{description}</p>
         <Image fluid={imageData} alt={title} />

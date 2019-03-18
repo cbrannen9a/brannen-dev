@@ -8,7 +8,6 @@ export const postResolver = posts => {
         }
     }
 
-    console.log(result);
     return result.sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
     });
@@ -30,7 +29,6 @@ const normalisePost = (sourcePost, source) => {
                 sourcePost.node.virtuals.previewImage.imageId
             }`;
             post.description = sourcePost.node.virtuals.subtitle;
-            post.body = '';
             post.createdAt = sourcePost.node.createdAt;
             break;
 
@@ -42,7 +40,7 @@ const normalisePost = (sourcePost, source) => {
             post.description = sourcePost.node.description;
             post.imageData = sourcePost.node.mainImage.asset.fluid;
             post.body = sourcePost.node._rawBody;
-            post.createdAt = sourcePost.node._createdAt;
+            post.createdAt = sourcePost.node.publishedAt;
             break;
         default:
             break;

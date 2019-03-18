@@ -105,3 +105,23 @@
 .post-preview p {
     margin-top: 0.5rem;
 }
+
+.post {
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+}
+.post h1 {
+    padding: 8px;
+    margin-bottom: 0px !important;
+}
+
+.post h3,
+.post img,
+.post p {
+    margin-top: 1rem;
+}
+
+.post ul {
+    margin-top: 0.5rem;
+}

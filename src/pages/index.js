@@ -61,13 +61,14 @@ const Home = () => {
                 }
             }
             allSanityPost(
-                sort: { fields: [_createdAt], order: DESC }
+                sort: { fields: [publishedAt], order: DESC }
                 limit: 3
             ) {
                 edges {
                     node {
-                        _createdAt
+                        publishedAt
                         title
+                        description
                         _rawBody
                         slug {
                             current
