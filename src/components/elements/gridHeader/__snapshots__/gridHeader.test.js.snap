@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridHeader renders correctly 1`] = `
+<h1
+  className="title grid-header"
+>
+  Test
+  <a
+    className="button is-link"
+    href="/test/"
+    style={
+      Object {
+        "marginLeft": "10px",
+      }
+    }
+  >
+    test
+  </a>
+</h1>
+`;
