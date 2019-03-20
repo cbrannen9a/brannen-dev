@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BlockContent renders code correctly 1`] = `
+<div>
+  <p>
+    <em>
+      I would reccommend to have a look at the 
+      <a
+        href="https://www.gatsbyjs.org/"
+      >
+        Gatsby docs
+      </a>
+       and a little play with a starter project first. Also I got alot of guidance for creating the portfolio site from this 
+      <a
+        href="https://youtu.be/SLGkyodumKI"
+      >
+        video
+      </a>
+      .
+    </em>
+  </p>
+  <pre
+    className="language-javascript"
+  >
+    <code
+      className="language-javascript"
+    >
+      import test from 'tester';
+
+const thistest = () =&gt; {
+  return &lt;div&gt;testing&lt;/div&gt;
+}
+    </code>
+  </pre>
+  <p>
+    
+  </p>
+</div>
+`;
+
 exports[`BlockContent renders correctly 1`] = `
 <p>
   test text

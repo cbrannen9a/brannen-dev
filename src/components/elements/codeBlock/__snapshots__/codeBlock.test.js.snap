@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeBlock renders correctly 1`] = `
+<pre
+  className="language-javascript"
+>
+  <code
+    className="language-javascript"
+  >
+    import test from 'tester';
+
+const thistest = () =&gt; {
+  return &lt;div&gt;testing&lt;/div&gt;
+}
+  </code>
+</pre>
+`;
