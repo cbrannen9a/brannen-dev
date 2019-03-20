@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProjectGridHeader renders correctly 1`] = `
+exports[`GridHeader renders correctly 1`] = `
 <h1
-  className="title project-grid-header"
+  className="title grid-header"
 >
-  Projects
+  Test
   <a
     className="button is-link"
     href="/test/"

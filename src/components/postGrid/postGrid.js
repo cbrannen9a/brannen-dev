@@ -1,28 +1,28 @@
 import React from 'react';
 import GridHeader from '../elements/gridHeader/gridHeader';
-import ProjectGridView from './projectGridView';
+import PostGridView from './postGridView';
 
-const ProjectGrid = ({ projects, isMainPage }) => {
+const PostGrid = ({ posts, isMainPage }) => {
     return (
         <div className='project-grid'>
             {isMainPage ? (
                 <GridHeader
-                    title={'Projects'}
-                    link={'projects'}
+                    title={'Posts'}
+                    link={'posts'}
                     buttonColour={'link'}
                     buttonTitle={'View All'}
                 />
             ) : (
                 <GridHeader
-                    title={'Projects'}
+                    title={'Posts'}
                     link={'/'}
                     buttonColour={'light'}
                     buttonTitle={'Back'}
                 />
             )}
-            <ProjectGridView projects={projects} />
+            <PostGridView posts={isMainPage ? posts.slice(0, 3) : posts} />
         </div>
     );
 };
 
-export default ProjectGrid;
+export default PostGrid;
