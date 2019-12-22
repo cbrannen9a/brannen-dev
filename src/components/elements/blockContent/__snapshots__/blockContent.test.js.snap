@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlockContent renders code correctly 1`] = `
-<div>
+<div
+  className="block-content"
+>
   <p>
     <em>
       I would reccommend to have a look at the 
