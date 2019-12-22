@@ -1,127 +1,150 @@
 .bio {
-    margin-top: 10px;
-    margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .grid-header {
-    text-align: left;
+  text-align: left;
 }
 
 .project-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 8px;
-    padding: 8px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8px;
+  padding: 8px;
+  text-align: center;
 }
 
 .project-preview {
-    margin-bottom: 2rem;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.295);
-    border-radius: 3px;
-    padding: 10px;
-    align-self: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  border-radius: 3px;
+  padding: 10px;
+  align-self: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (min-width: 600px) {
-    .project-preview {
-        flex: 1 50%;
-        max-width: calc(80% - 0.5rem);
-    }
+  .project-preview {
+    flex: 1 50%;
+    max-width: calc(80% - 0.5rem);
+  }
 }
 
 .project-preview h2 {
-    font-size: 1.75rem;
-    margin-top: 0.5rem;
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
 }
 
 .project-preview h2 a {
-    color: #222;
-    text-decoration: none;
+  color: #222;
+  text-decoration: none;
 }
 
 .project-preview p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .project {
-    padding: 8px;
-    width: 100%;
+  padding: 8px;
+  width: 100%;
 }
 .project h1 {
-    padding: 8px;
-    margin-bottom: 0px !important;
+  padding: 8px;
+  margin-bottom: 0px !important;
 }
 
 .project h3,
 .project img,
 .project p {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .project ul {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .post-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 8px;
-    padding: 8px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8px;
+  padding: 8px;
+  text-align: center;
 }
 
 .post-preview {
-    margin-bottom: 2rem;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.295);
-    border-radius: 3px;
-    padding: 10px;
-    align-self: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  border-radius: 3px;
+  padding: 10px;
+  align-self: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (min-width: 600px) {
-    .post-preview {
-        flex: 1 50%;
-        max-width: calc(80% - 0.5rem);
-    }
+  .post-preview {
+    flex: 1 50%;
+    max-width: calc(80% - 0.5rem);
+  }
 }
 
 .post-preview h2 {
-    font-size: 1.75rem;
-    margin-top: 0.5rem;
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
 }
 
 .post-preview h2 a {
-    color: #222;
-    text-decoration: none;
+  color: #222;
+  text-decoration: none;
 }
 
 .post-preview p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .post {
-    padding: 8px;
-    width: 100%;
-    text-align: center;
+  padding: 8px;
+  width: 100%;
+  text-align: center;
 }
 .post h1 {
-    padding: 8px;
-    margin-bottom: 0px !important;
+  padding: 8px;
+  margin-bottom: 0px !important;
 }
 
 .post h3,
 .post img,
 .post p {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .post ul {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.block-content {
+  text-align: left;
+}
+
+.block-content h1,
+.block-content h2,
+.block-content h3,
+.block-content h4,
+.block-content h5,
+.block-content h6 {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.block-content figure {
+  text-align: center;
+}
+
+.block-content code {
+  color: black;
 }

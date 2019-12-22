@@ -1,3 +1,5 @@
+let config = require("./config/sanity");
+
 module.exports = {
   siteMetadata: {
     title: "Brannen.dev",
@@ -11,8 +13,8 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "o44u55ke",
-        dataset: "production",
+        projectId: config.projectId,
+        dataset: config.dataset,
         watchMode: true
       }
     },
