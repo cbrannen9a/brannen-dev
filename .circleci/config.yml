@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.14.0
-    working_directory: ~/
+    working_directory: ~/gatsby-site
     steps:
       - checkout
       - restore_cache:
