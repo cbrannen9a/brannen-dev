@@ -27,12 +27,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-source-medium",
-      options: {
-        username: "@cbrannen"
-      }
-    },
-    {
       resolve: `gatsby-transformer-sharp`
     }
   ]

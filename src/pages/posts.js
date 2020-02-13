@@ -29,30 +29,11 @@ const Posts = () => {
           }
         }
       }
-      allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-        edges {
-          node {
-            createdAt
-            id
-            title
-            uniqueSlug
-            virtuals {
-              subtitle
-              previewImage {
-                imageId
-              }
-            }
-            author {
-              name
-            }
-          }
-        }
-      }
     }
   `);
 
   const posts = postResolver({
-    medium: data.allMediumPost.edges,
+    medium: data?.allMediumPost?.edges || [],
     sanity: data.allSanityPost.edges
   });
   return (
