@@ -12,7 +12,6 @@ const Link = styled.a`
   border-color: transparent;
   color: #4a4a4a !important;
 
-  height: 2.572em;
   border-width: 1px;
   cursor: pointer;
   justify-content: center;
@@ -24,11 +23,13 @@ const Link = styled.a`
 
   text-align: center;
   white-space: nowrap;
-  line-height: 2.5;
+  height: 1.75rem;
+  line-height: 1.75rem;
   box-shadow: none;
   display: inline-flex;
   font-size: 1rem;
   text-decoration: none;
+
   :hover,
   :active,
   :focus {
@@ -37,7 +38,7 @@ const Link = styled.a`
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  margin-top: 11px;
+  margin-top: 6px;
   margin-right: 3px;
 `;
 

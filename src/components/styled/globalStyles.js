@@ -5,9 +5,10 @@ import { font } from "./typography";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    font-family: "Muli", "Helvetica Neue", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+    font-family: "Muli", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
     font-size: ${font.baseSize};
     line-height: ${font.baseLineHeight};
+    box-sizing: border-box;
   }
 
   body {
@@ -23,6 +24,16 @@ const GlobalStyle = createGlobalStyle`
   body > div,
   body > div > div {
     height: 100%;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-weight: normal;
   }
 `;
 

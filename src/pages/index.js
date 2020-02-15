@@ -1,13 +1,38 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { Column } from "rbx";
 import React from "react";
 import Layout from "../components/layout/layout";
 import PostGrid from "../components/postGrid/postGrid";
 import ProjectGrid from "../components/projectGrid/projectGrid";
 import SEO from "../components/seo";
 import Welcome from "../components/welcome/welcome";
-//import "../styles/index.css";
+
 import { postResolver } from "../utils/postResolver";
+
+import styled from "styled-components";
+import { media } from "../components/styled/";
+
+const Columns = styled.div`
+  ${media.minSmall} {
+    display: flex;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    margin-top: -0.75rem;
+
+    &:last-child {
+      margin-bottom: -0.75rem;
+    }
+  }
+`;
+
+const Column = styled.div`
+  ${media.minSmall} {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem;
+  }
+`;
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -90,16 +115,16 @@ const Home = () => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={["gatsby", "application", "react"]} />
-      <Column.Group>
-        <Column size="one-half">
+      <SEO title="Home" />
+      <Columns>
+        <Column>
           <Welcome author={author} skills={skills} />
           <PostGrid posts={posts} isMainPage />
         </Column>
         <Column>
           <ProjectGrid projects={projects} isMainPage />
         </Column>
-      </Column.Group>
+      </Columns>
     </Layout>
   );
 };
