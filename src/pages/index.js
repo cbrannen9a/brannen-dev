@@ -6,7 +6,7 @@ import PostGrid from "../components/postGrid/postGrid";
 import ProjectGrid from "../components/projectGrid/projectGrid";
 import SEO from "../components/seo";
 import Welcome from "../components/welcome/welcome";
-import "../styles/index.css";
+//import "../styles/index.css";
 import { postResolver } from "../utils/postResolver";
 
 const Home = () => {
