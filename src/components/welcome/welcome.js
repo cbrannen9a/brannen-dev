@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-
+import Title from "../elements/title";
 import Bio from "../bio/bio";
 import Skills from "../skills/skills";
 import SocialLinks from "../socialLinks/socialLinks";
@@ -12,12 +12,6 @@ const Hero = styled.div`
   padding: 3rem 1.5rem;
   flex-grow: 1;
   flex-shrink: 0;
-`;
-
-const Title = styled.h1`
-  margin-bottom: 1rem;
-  font-size: 28px;
-  font-weight: 600;
 `;
 
 const Welcome = ({ author, skills }) => {

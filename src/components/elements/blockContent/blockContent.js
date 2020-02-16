@@ -3,6 +3,30 @@ import PropTypes from "prop-types";
 import React from "react";
 import CodeBlock from "../codeBlock/codeBlock";
 import Figure from "../figure/figure";
+import styled from "styled-components";
+
+const StyledBlockContent = styled(BlockContent)`
+  text-align: left;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  code {
+    color: black;
+  }
+`;
 
 const serializers = {
   types: {
@@ -13,17 +37,13 @@ const serializers = {
       return <CodeBlock language={language}>{code}</CodeBlock>;
     },
     figure: props => {
-      return <Figure {...props.node} />;
+      return <Figure {...props} />;
     }
   }
 };
 
 const Content = ({ blocks }) => (
-  <BlockContent
-    className="block-content"
-    blocks={blocks}
-    serializers={serializers}
-  />
+  <StyledBlockContent blocks={blocks} serializers={serializers} />
 );
 
 Content.propTypes = {
