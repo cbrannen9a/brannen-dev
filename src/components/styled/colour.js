@@ -10,3 +10,24 @@ export const colour = {
   link: "#3273dc",
   light: "#f5f5f5"
 };
+
+export const palette = {
+  primary: {
+    main: "#8e44ad",
+    mainText: "#fff",
+    alternative: "#dbdbdb",
+    alternativeText: ""
+  },
+  link: {
+    main: "#3273dc",
+    mainText: "#fff",
+    alternative: "#dbdbdb",
+    alternativeText: "#8e44ad"
+  },
+  light: {
+    main: "#f5f5f5",
+    mainText: "#363636",
+    alternative: "#dbdbdb",
+    alternativeText: "#363636"
+  }
+};

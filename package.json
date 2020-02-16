@@ -74,7 +74,7 @@
     "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest -- watch",
+    "test:coverage": "jest --coverage",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "predeploy": "yarn build",
