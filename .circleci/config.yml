@@ -34,7 +34,7 @@ jobs:
             - ./node_modules
       - run: yarn build
       - persist_to_workspace:
-          root: /root/project
+          root: ~/project
           paths:
             - dist
             - firebase.json
@@ -45,7 +45,7 @@ jobs:
     working_directory: ~/project
     steps:
       - attach_workspace:
-          at: /root/project
+          at: ~/project
       - firebase-deploy:
           token: $FIREBASE_DEPLOY_TOKEN
 workflows:
