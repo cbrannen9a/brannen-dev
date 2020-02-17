@@ -32,8 +32,9 @@ jobs:
           paths:
             - ./node_modules
       - run: yarn build
+      - run: mkdir -p workspace
       - persist_to_workspace:
-          root: ~/tmp/workspace
+          root: /workspace
           paths:
             - dist
             - firebase.json
@@ -43,7 +44,7 @@ jobs:
       - image: "circleci/node:lts"
     steps:
       - attach_workspace:
-          at: ~/tmp/workspace
+          at: /workspace
       - firebase-deploy:
           token: $FIREBASE_DEPLOY_TOKEN
 workflows:
