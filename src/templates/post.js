@@ -9,7 +9,7 @@ export const query = graphql`
     sanityPost(slug: { current: { eq: $slug } }) {
       title
       description
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 5 })
       mainImage {
         asset {
           fluid(maxWidth: 700) {

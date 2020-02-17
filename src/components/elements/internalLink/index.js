@@ -1,0 +1,46 @@
+import React from "react";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import { palette } from "../../styled";
+
+const StyledLink = styled(Link)`
+  margin: 5px 10px;
+  ${props => (props.rounded ? `border-radius: 290486px;` : ``)};
+  background-color: ${props => palette[props.colour].main};
+  border-color: transparent;
+  color: ${props => palette[props.colour].mainText} !important;
+  border-width: 1px;
+  cursor: pointer;
+  justify-content: center;
+
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: calc(0.375em - 1px);
+  padding-top: calc(0.375em - 1px);
+
+  text-align: center;
+  white-space: nowrap;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  text-decoration: none;
+
+  :hover,
+  :active,
+  :focus {
+    background-color: ${props => palette[props.colour].alternative};
+    color: ${props => palette[props.colour].alternativeText} !important;
+  }
+`;
+
+const InternalLink = ({ children, colour, to, rounded }) => {
+  return (
+    <StyledLink colour={colour} to={to} rounded={rounded}>
+      {children}
+    </StyledLink>
+  );
+};
+
+export default InternalLink;

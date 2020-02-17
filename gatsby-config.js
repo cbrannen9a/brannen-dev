@@ -10,6 +10,15 @@ module.exports = {
     }
   },
   plugins: [
+    "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Muli"]
+        }
+      }
+    },
     {
       resolve: "gatsby-source-sanity",
       options: {
