@@ -22,6 +22,7 @@ jobs:
   build:
     docker:
       - image: "circleci/node:lts"
+    working_directory: ~/project
     steps:
       - checkout
       - restore_cache:
@@ -32,9 +33,8 @@ jobs:
           paths:
             - ./node_modules
       - run: yarn build
-      - run: mkdir -p workspace
       - persist_to_workspace:
-          root: /workspace
+          root: /root/project
           paths:
             - dist
             - firebase.json
@@ -42,9 +42,10 @@ jobs:
   deploy:
     docker:
       - image: "circleci/node:lts"
+    working_directory: ~/project
     steps:
       - attach_workspace:
-          at: /workspace
+          at: /root/project
       - firebase-deploy:
           token: $FIREBASE_DEPLOY_TOKEN
 workflows:
