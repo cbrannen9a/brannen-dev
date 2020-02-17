@@ -1,12 +1,23 @@
-import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
-import { Button, Title } from "rbx";
-import React from "react";
+import InternalLink from "../elements/internalLink";
+import Title from "../elements/title";
+
 import BlockContent from "../elements/blockContent/blockContent";
+import { media } from "../styled";
+
+const Content = styled.div`
+  padding: 1rem;
+  text-align: center;
+  ${media.minLarge} {
+    padding: 2.5rem 7rem;
+  }
+`;
 
 const Post = ({ title, description, imageData, body }) => (
-  <div className="post">
+  <Content>
     <Title>{title}</Title>
     <p>{description}</p>
     <Image
@@ -16,11 +27,11 @@ const Post = ({ title, description, imageData, body }) => (
     />
     <BlockContent blocks={body} />
     <p>
-      <Button as={Link} color="light" to="/">
+      <InternalLink colour={"light"} to="/">
         &larr; back to all posts
-      </Button>
+      </InternalLink>
     </p>
-  </div>
+  </Content>
 );
 
 Post.propTypes = {

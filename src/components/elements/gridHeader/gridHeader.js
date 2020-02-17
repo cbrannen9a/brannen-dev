@@ -1,21 +1,16 @@
-import { Link } from 'gatsby';
-import { Button, Title } from 'rbx';
-import React from 'react';
+import React from "react";
+import Title from "../title";
+import InternalLink from "../internalLink";
 
 const GridHeader = ({ title, link, buttonTitle, buttonColour }) => {
-    return (
-        <Title className='grid-header'>
-            {title}
-            <Button
-                style={{ marginLeft: '10px' }}
-                as={Link}
-                color={buttonColour}
-                to={`/${link}/`}
-            >
-                {buttonTitle}
-            </Button>
-        </Title>
-    );
+  return (
+    <Title>
+      {title}
+      <InternalLink to={`/${link}/`} colour={buttonColour}>
+        {buttonTitle}
+      </InternalLink>
+    </Title>
+  );
 };
 
 export default GridHeader;

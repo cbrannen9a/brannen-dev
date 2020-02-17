@@ -1,24 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import HoverableTag from "../elements/hoverableTag/hoverableTag";
 
-import { Tag } from 'rbx';
-import HoverableTag from '../elements/hoverableTag/hoverableTag';
+const Tags = styled.div`
+  margin-top: 5px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;
 
 const Skills = ({ skills }) => (
-    <Tag.Group style={{ marginTop: '5px' }}>
-        {skills &&
-            skills.map(s => (
-                <HoverableTag
-                    key={s.id}
-                    title={s.title}
-                    description={s._rawDescription}
-                />
-            ))}
-    </Tag.Group>
+  <Tags>
+    {skills &&
+      skills.map(s => (
+        <HoverableTag
+          key={s.id}
+          title={s.title}
+          description={s._rawDescription}
+        />
+      ))}
+  </Tags>
 );
 
 Skills.propTypes = {
-    skills: PropTypes.array
+  skills: PropTypes.array
 };
 
 export default Skills;
