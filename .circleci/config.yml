@@ -1,6 +1,23 @@
 version: 2.1
-orbs:
-  firebase-deploy: azdevs/firebase-deploy@1.0.0
+commands:
+  firebase-deploy:
+    description: Deploy to Firebase
+    parameters:
+      token:
+        type: string
+        description: Firebase Deploy Token
+      alias:
+        type: string
+        default: "default"
+        description: Firebase project alias to deploy to
+    steps:
+      - run:
+          name: Install Firebase Tools
+          command: npm install --prefix=./firebase-deploy firebase-tools
+      - run:
+          name: Deploy to Firebase
+          command: ./firebase-deploy/node_modules/.bin/firebase deploy --token=<< parameters.token >> -P << parameters.alias >>
+
 jobs:
   build:
     docker:
@@ -27,7 +44,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - firebase-deploy/deploy:
+      - firebase-deploy:
           token: $FIREBASE_DEPLOY_TOKEN
 workflows:
   build-and-deploy:
