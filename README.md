@@ -9,7 +9,7 @@
 
 Portfolio site for [brannen.dev](https://brannen.dev)
 
-This site uses [Gatsby](https://www.gatsbyjs.org/) and [Sanity.io](https://www.sanity.io/) along with custom styling of [rbx](https://dfee.github.io/rbx/) it is deploy via [Firebase Hosting](https://firebase.google.com/)
+This site uses [Gatsby](https://www.gatsbyjs.org/) and [Sanity.io](https://www.sanity.io/) it is deploy via [Firebase Hosting](https://firebase.google.com/)
 
 ### Setup
 
