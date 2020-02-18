@@ -36,7 +36,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - dist
+            - public
             - firebase.json
             - .firebaserc
   deploy:
