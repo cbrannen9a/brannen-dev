@@ -1,15 +1,15 @@
 describe("app", () => {
   it("works", () => {
+    cy.visit("/");
+  });
+  it("visits posts", () => {
     cy.visit("/")
-      .findByText(/view all/i)
+      .findAllByText(/view all/i)
+      .first()
+      .should("have.attr", "href", "/posts/")
       .click();
   });
-  it("visits projects", () => {
-    cy.visit("/")
-      .findByText(/view all/i)
-      .click();
-  });
-  it("goes back home", () => {
+  it("goes back home from projects", () => {
     cy.visit("/projects")
       .findByText(/back/i)
       .click();
