@@ -6,11 +6,11 @@ const StyledCard = styled.div`
   max-width: calc(80% - 0.5rem);
   margin-bottom: 2rem;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.295);
   border-radius: 3px;
   padding: 10px;
   align-self: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  box-shadow: 2px 5px 5px #969699, -1px -2px 2px #dddcde;
 `;
 
 const Card = ({ children }) => <StyledCard>{children}</StyledCard>;

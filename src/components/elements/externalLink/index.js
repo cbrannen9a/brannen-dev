@@ -10,6 +10,7 @@ const StyledLink = styled.a`
   border-color: transparent;
   color: ${props => palette[props.colour].mainText} !important;
   border-width: 1px;
+  border-radius: 6px;
   cursor: pointer;
   justify-content: center;
 
@@ -26,6 +27,9 @@ const StyledLink = styled.a`
   display: inline-flex;
   font-size: 1rem;
   text-decoration: none;
+
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2), 2px 6px 5px rgba(0, 0, 0, 0.19),
+    -1px -2px 0px #dfd4e9;
 
   :hover,
   :active,

@@ -18,7 +18,7 @@ const Content = styled.div`
 
 const Post = ({ title, description, imageData, body }) => (
   <Content>
-    <Title>{title}</Title>
+    <Title darkText>{title}</Title>
     <p>{description}</p>
     <Image
       fluid={imageData}

@@ -18,7 +18,7 @@ const StyledProject = styled.div`
 
 const Project = ({ title, url, imageData, body }) => (
   <StyledProject>
-    <Title>{title}</Title>
+    <Title darkText>{title}</Title>
     <Image fluid={imageData} alt={title} />
     <BlockContent blocks={body} />
     <p>

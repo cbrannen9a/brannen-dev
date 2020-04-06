@@ -46,7 +46,7 @@ const ProjectPreview = ({ title, description, slug, imageData, skills }) => (
       View
     </InternalLink>
     <p>{description}</p>
-    <Skills skills={skills} />
+    <Skills skills={skills} light={true} />
   </StyledPreview>
 );
 
