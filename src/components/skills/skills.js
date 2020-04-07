@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import HoverableTag from "../elements/hoverableTag/hoverableTag";
+import { HoverableTag, LightHoverableTag } from "../elements/hoverableTag";
 
 const Tags = styled.div`
   margin-top: 5px;
@@ -11,21 +11,30 @@ const Tags = styled.div`
   justify-content: flex-start;
 `;
 
-const Skills = ({ skills }) => (
+const Skills = ({ skills, light }) => (
   <Tags>
     {skills &&
-      skills.map(s => (
-        <HoverableTag
-          key={s.id}
-          title={s.title}
-          description={s._rawDescription}
-        />
-      ))}
+      skills.map(s =>
+        light ? (
+          <LightHoverableTag
+            key={s.id}
+            title={s.title}
+            description={s._rawDescription}
+          />
+        ) : (
+          <HoverableTag
+            key={s.id}
+            title={s.title}
+            description={s._rawDescription}
+          />
+        )
+      )}
   </Tags>
 );
 
 Skills.propTypes = {
-  skills: PropTypes.array
+  skills: PropTypes.array,
+  light: PropTypes.bool
 };
 
 export default Skills;

@@ -11,8 +11,9 @@ const ToolTipBubble = styled.div`
   min-width: 200px;
   max-width: 300px;
   position: absolute;
-  top: 22px;
+  top: 35px;
   z-index: 10;
+
   ::after {
     content: "";
     position: absolute;
@@ -27,6 +28,7 @@ const ToolTipMessage = styled.div`
   line-height: 1.4;
   padding: 0.75em;
   text-align: left;
+  box-shadow: 2px 5px 5px #969699, -1px -2px 1px #dddcde;
 `;
 
 const ToolTipTrigger = styled.span`

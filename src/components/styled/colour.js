@@ -16,7 +16,7 @@ export const palette = {
     main: "#8e44ad",
     mainText: "#fff",
     alternative: "#dbdbdb",
-    alternativeText: ""
+    alternativeText: "#000"
   },
   link: {
     main: "#3273dc",

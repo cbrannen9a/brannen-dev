@@ -4,8 +4,9 @@ import styled from "styled-components";
 import BlockContent from "../elements/blockContent/blockContent";
 
 const StyledBio = styled.div`
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 2px 1px #3b1a57;
 `;
 
 const Bio = ({ bio }) => {

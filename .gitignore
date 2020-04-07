@@ -69,3 +69,5 @@ yarn-error.log
 .yarn-integrity
 
 .firebase
+cypress/videos
+cypress/screenshots
