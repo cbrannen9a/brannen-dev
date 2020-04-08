@@ -8,6 +8,7 @@ import ExternalLink from "../externalLink";
 const Icon = styled(FontAwesomeIcon)`
   margin-top: 6px;
   margin-right: 3px;
+  width: 20px;
 `;
 
 const Linkable = ({ link, name, icon }) => {
