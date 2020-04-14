@@ -7,7 +7,6 @@ import Title from "../elements/title";
 import BlockContent from "../elements/blockContent/blockContent";
 import ExternalLink from "../elements/externalLink";
 import { media } from "../styled";
-import firebase from "gatsby-plugin-firebase";
 
 const StyledProject = styled.div`
   padding: 1rem;
@@ -18,7 +17,6 @@ const StyledProject = styled.div`
 `;
 
 const Project = ({ title, url, imageData, body }) => {
-  firebase.analytics().logEvent(`Project: ${title}`);
   return (
     <StyledProject>
       <Title darkText>{title}</Title>

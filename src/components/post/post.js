@@ -6,7 +6,6 @@ import InternalLink from "../elements/internalLink";
 import Title from "../elements/title";
 import BlockContent from "../elements/blockContent/blockContent";
 import { media } from "../styled";
-import firebase from "gatsby-plugin-firebase";
 
 const Content = styled.div`
   padding: 1rem;
@@ -17,7 +16,6 @@ const Content = styled.div`
 `;
 
 const Post = ({ title, description, imageData, body }) => {
-  firebase.analytics().logEvent(`Post: ${title}`);
   return (
     <Content>
       <Title darkText>{title}</Title>
