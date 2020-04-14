@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
+import firebase from "gatsby-plugin-firebase";
 import React from "react";
 import Layout from "../components/layout/layout";
 import PostGrid from "../components/postGrid/postGrid";
@@ -112,7 +113,7 @@ const Home = () => {
     medium: data?.allMediumPost?.edges || [],
     sanity: data.allSanityPost.edges
   });
-
+  firebase.analytics();
   return (
     <Layout>
       <SEO title="Home" />
