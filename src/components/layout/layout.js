@@ -5,10 +5,7 @@ import GlobalStyles from "../styled/globalStyles";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
-import firebase from "gatsby-plugin-firebase";
-
 library.add(fab);
-firebase.analytics();
 
 const Layout = ({ children }) => (
   <GlobalStyles>

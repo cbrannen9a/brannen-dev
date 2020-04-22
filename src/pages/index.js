@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
+import firebase from "gatsby-plugin-firebase";
 import Layout from "../components/layout/layout";
 import PostGrid from "../components/postGrid/postGrid";
 import ProjectGrid from "../components/projectGrid/projectGrid";
@@ -112,6 +113,13 @@ const Home = () => {
     medium: data?.allMediumPost?.edges || [],
     sanity: data.allSanityPost.edges
   });
+
+  useEffect(() => {
+    if (!firebase) {
+      return;
+    }
+    firebase.analytics();
+  }, []);
 
   return (
     <Layout>
