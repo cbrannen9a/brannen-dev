@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import firebase from "gatsby-plugin-firebase";
+import CookieConsent from "react-cookie-consent";
 import Layout from "../components/layout/layout";
 import PostGrid from "../components/postGrid/postGrid";
 import ProjectGrid from "../components/projectGrid/projectGrid";
@@ -16,7 +17,6 @@ const Columns = styled.div`
   ${media.minSmall} {
     display: flex;
     margin-left: -0.75rem;
-    margin-right: -0.75rem;
     margin-top: -0.75rem;
 
     &:last-child {
@@ -111,7 +111,7 @@ const Home = () => {
 
   const posts = postResolver({
     medium: data?.allMediumPost?.edges || [],
-    sanity: data.allSanityPost.edges
+    sanity: data.allSanityPost.edges,
   });
 
   useEffect(() => {
@@ -133,6 +133,9 @@ const Home = () => {
           <ProjectGrid projects={projects} isMainPage />
         </Column>
       </Columns>
+      <CookieConsent>
+        This website uses cookies to enhance the user experience.
+      </CookieConsent>
     </Layout>
   );
 };
