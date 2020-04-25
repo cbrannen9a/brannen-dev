@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
+import firebase from "gatsby-plugin-firebase";
 import InternalLink from "../elements/internalLink";
 import Title from "../elements/title";
 import BlockContent from "../elements/blockContent/blockContent";
@@ -16,6 +17,13 @@ const Content = styled.div`
 `;
 
 const Post = ({ title, description, imageData, body }) => {
+  useEffect(() => {
+    if (!firebase) {
+      return;
+    }
+    firebase.analytics().logEvent(`Post: ${title}`);
+  }, [title]);
+
   return (
     <Content>
       <Title darkText>{title}</Title>
@@ -39,7 +47,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
 
   imageData: PropTypes.object.isRequired,
-  body: PropTypes.array.isRequired
+  body: PropTypes.array.isRequired,
 };
 
 export default Post;

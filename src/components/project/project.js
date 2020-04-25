@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Image from "gatsby-image";
+import firebase from "gatsby-plugin-firebase";
 import InternalLink from "../elements/internalLink";
 import Title from "../elements/title";
 import BlockContent from "../elements/blockContent/blockContent";
@@ -17,6 +18,13 @@ const StyledProject = styled.div`
 `;
 
 const Project = ({ title, url, imageData, body }) => {
+  useEffect(() => {
+    if (!firebase) {
+      return;
+    }
+    firebase.analytics().logEvent(`Project: ${title}`);
+  }, [title]);
+
   return (
     <StyledProject>
       <Title darkText>{title}</Title>
@@ -40,7 +48,7 @@ Project.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   imageData: PropTypes.object.isRequired,
-  body: PropTypes.array.isRequired
+  body: PropTypes.array.isRequired,
 };
 
 export default Project;

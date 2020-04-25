@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${font.baseSize};
     line-height: ${font.baseLineHeight};
     box-sizing: border-box;
+    font-display: swap;
   }
 
   body {

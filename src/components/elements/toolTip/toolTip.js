@@ -13,11 +13,6 @@ const ToolTipBubble = styled.div`
   position: absolute;
   top: 35px;
   z-index: 10;
-
-  ::after {
-    content: "";
-    position: absolute;
-  }
 `;
 
 const ToolTipMessage = styled.div`
@@ -54,7 +49,7 @@ const ToolTip = ({ message, children }) => {
 ToolTip.propTypes = {
   message: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 export default ToolTip;
