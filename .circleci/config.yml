@@ -43,8 +43,12 @@ jobs:
             - .firebaserc
   test:
     executor: lighthouse-check/default
+    working_directory: ~/project
     steps:
-      - run: yarn serve
+      - attach_workspace:
+          at: ~/project
+      - run: npm install -g gatsby
+      - run: gatsby serve
       - lighthouse-check/audit:
           urls: "http://localhost:9000/"
   deploy:
