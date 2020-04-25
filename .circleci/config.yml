@@ -17,7 +17,8 @@ commands:
       - run:
           name: Deploy to Firebase
           command: ./firebase-deploy/node_modules/.bin/firebase deploy --token=<< parameters.token >> -P << parameters.alias >>
-
+orbs:
+  lighthouse-check: foo-software/lighthouse-check@0.0.6
 jobs:
   build:
     docker:
@@ -40,6 +41,12 @@ jobs:
             - public
             - firebase.json
             - .firebaserc
+  test:
+    executor: lighthouse-check/default
+    steps:
+      - run: yarn serve
+      - lighthouse-check/audit:
+          urls: "http://localhost:9000/"
   deploy:
     docker:
       - image: "circleci/node:lts"
