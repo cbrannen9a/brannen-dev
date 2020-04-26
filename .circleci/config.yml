@@ -74,6 +74,7 @@ jobs:
             - public
             - firebase.json
             - .firebaserc
+            - .lighthouserc.json
   test:
     docker:
       - image: "circleci/node:lts"
