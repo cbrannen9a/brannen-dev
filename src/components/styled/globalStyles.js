@@ -5,7 +5,7 @@ import { font } from "./typography";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    font-family: "Muli", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+    font-family: Arial, sans-serif, -apple-system, BlinkMacSystemFont;
     font-size: ${font.baseSize};
     line-height: ${font.baseLineHeight};
     box-sizing: border-box;
