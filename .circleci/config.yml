@@ -21,7 +21,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: "circleci/node:lts"
+      - image: "circleci/node:lts-browsers"
     working_directory: ~/project
     steps:
       - checkout
@@ -34,6 +34,10 @@ jobs:
             - ./node_modules
       - run: yarn build
       - run: yarn test
+      - run: sudo npm install -g @lhci/cli@0.3.x
+      - run:
+          name: lhci autorun
+          command: lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
       - persist_to_workspace:
           root: ~/project
           paths:
