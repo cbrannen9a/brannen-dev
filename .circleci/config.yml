@@ -43,10 +43,10 @@ commands:
           command: sudo npm install -g @lhci/cli@0.3.x
       - run:
           name: Lighthouse Tests
-          command: lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
+          command: lhci autorun
 
 jobs:
-  build:
+  dependencies:
     docker:
       - image: "circleci/node:lts"
     working_directory: ~/project
@@ -59,6 +59,14 @@ jobs:
           key: 'v1.1-yarn-{{ checksum "yarn.lock" }}'
           paths:
             - ./node_modules
+  build:
+    docker:
+      - image: "circleci/node:lts"
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: 'v1.1-yarn-{{ checksum "yarn.lock" }}'
       - yarn-build
       - persist_to_workspace:
           root: ~/project
@@ -95,8 +103,13 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
-      - test
+      - dependencies
+      - build:
+          requires:
+            - dependencies
+      - test:
+          requires:
+            - dependencies
       - perf:
           requires:
             - build
