@@ -1,0 +1,19 @@
+{
+  "ci": {
+    "collect": {
+      "settings": {
+        "chromeFlags": "--ignore-certificate-errors"
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "offscreen-images": "off",
+        "uses-rel-preconnect": "off"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import React, { useEffect } from "react";
 import firebase from "gatsby-plugin-firebase";
 import CookieConsent from "react-cookie-consent";
@@ -8,10 +8,9 @@ import ProjectGrid from "../components/projectGrid/projectGrid";
 import SEO from "../components/seo";
 import Welcome from "../components/welcome/welcome";
 
-import { postResolver } from "../utils/postResolver";
-
 import styled from "styled-components";
 import { media } from "../components/styled/";
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../utils/helper";
 
 const Columns = styled.div`
   ${media.minSmall} {
@@ -35,84 +34,130 @@ const Column = styled.div`
   }
 `;
 
-const Home = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allSanityProject(sort: { fields: [publishedAt], order: DESC }, limit: 3) {
-        edges {
-          node {
-            title
-            slug {
-              current
+export const query = graphql`
+
+  query IndexPageQuery {
+    author: sanityAuthor(name: { eq: "Chris Brannen" }) {
+      name
+      _rawBio
+      twitter
+      github
+      email
+    }
+    posts: allSanityPost(
+      limit: 6
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
             }
-            description
-            url
-            skills {
-              id
-              title
-              _rawDescription
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
             }
-            mainImage {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
+            asset {
+              _id
             }
           }
-        }
-      }
-      sanityAuthor(name: { eq: "Chris Brannen" }) {
-        name
-        _rawBio
-        twitter
-        github
-        email
-      }
-      allSanitySkills(sort: { fields: [group, subGroup, order], order: ASC }) {
-        edges {
-          node {
-            id
-            title
-            _rawDescription
-            group
-            subGroup
-            order
-          }
-        }
-      }
-      allSanityPost(sort: { fields: [publishedAt], order: DESC }, limit: 3) {
-        edges {
-          node {
-            publishedAt
-            title
-            description
-            _rawBody
-            slug {
-              current
-            }
-            id
-            mainImage {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
+          title
+          _rawBody
+          description
+          slug {
+            current
           }
         }
       }
     }
-  `);
+    projects: allSanityProject(
+      limit: 6
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+          }
+          title
+          description
+          url
+          skills {
+            id
+            title
+            _rawDescription
+          }
+          slug {
+            current
+          }
+        }
+      }
+    }
+    skills: allSanitySkills(
+      sort: { fields: [group, subGroup, order], order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          title
+          _rawDescription
+          group
+          subGroup
+          order
+        }
+      }
+    }
+  }
+`;
 
-  const projects = data.allSanityProject.edges;
-  const author = data.sanityAuthor;
-  const skills = data.allSanitySkills.edges;
+const Home = (props) => {
+  const { data, errors } = props;
 
-  const posts = postResolver({
-    medium: data?.allMediumPost?.edges || [],
-    sanity: data.allSanityPost.edges,
-  });
+ 
+
+  const projects = (data || {}).projects
+    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    : [];
+  const author = data.author;
+  const skills = (data || {}).skills ? mapEdgesToNodes(data.skills) : [];
+
+  const posts = (data || {}).posts
+    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+    : [];
 
   useEffect(() => {
     if (!firebase) {

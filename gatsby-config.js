@@ -7,37 +7,29 @@ module.exports = {
     description: "Blog and Portfolio by Chris Brannen.",
     author: "Chris Brannen",
     social: {
-      twitter: "cbrannen9a"
-    }
+      twitter: "cbrannen9a",
+    },
   },
   plugins: [
     "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Muli"]
-        }
-      }
-    },
     {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: config.projectId,
         dataset: config.dataset,
-        watchMode: true
-      }
+        watchMode: true,
+      },
     },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/
-        }
-      }
+          include: /assets/,
+        },
+      },
     },
     {
-      resolve: `gatsby-transformer-sharp`
+      resolve: `gatsby-transformer-sharp`,
     },
     {
       resolve: "gatsby-plugin-firebase",
@@ -50,9 +42,9 @@ module.exports = {
           storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
           messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
           appId: process.env.GATSBY_FIREBASE_APP_ID,
-          measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID
-        }
-      }
-    }
-  ]
+          measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+        },
+      },
+    },
+  ],
 };

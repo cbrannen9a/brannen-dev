@@ -1,41 +1,60 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout/layout";
 import PostGrid from "../components/postGrid/postGrid";
 import SEO from "../components/seo";
-import { postResolver } from "../utils/postResolver";
+import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from "../utils/helper";
 
-const Posts = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allSanityPost(sort: { fields: [publishedAt], order: DESC }) {
-        edges {
-          node {
-            publishedAt
-            title
-            description
-            _rawBody
-            slug {
-              current
+export const query = graphql`
+  query PostPageQuery {
+    posts: allSanityPost(
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
             }
-            id
-            mainImage {
-              asset {
-                fluid(maxWidth: 150) {
-                  ...GatsbySanityImageFluid
-                }
-              }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
             }
+            asset {
+              _id
+            }
+          }
+          title
+          _rawBody
+          description
+          slug {
+            current
           }
         }
       }
     }
-  `);
+  }
+`;
 
-  const posts = postResolver({
-    medium: data?.allMediumPost?.edges || [],
-    sanity: data.allSanityPost.edges
-  });
+const Posts = (props) => {
+  const { data } = props;
+
+  const posts = (data || {}).posts
+    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+    : [];
+
   return (
     <Layout>
       <SEO title="Posts" keywords={["gatsby", "application", "react"]} />
