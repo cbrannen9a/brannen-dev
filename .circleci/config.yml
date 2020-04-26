@@ -54,12 +54,12 @@ jobs:
       - checkout
       - restore_cache:
           key: 'v1.1-yarn-{{ checksum "yarn.lock" }}'
-      - run: yarn-install
+      - yarn-install
       - save_cache:
           key: 'v1.1-yarn-{{ checksum "yarn.lock" }}'
           paths:
             - ./node_modules
-      - run: yarn-build
+      - yarn-build
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -74,13 +74,15 @@ jobs:
       - checkout
       - restore_cache:
           key: 'v1.1-yarn-{{ checksum "yarn.lock" }}'
-      - run: yarn-test
+      - yarn-test
   perf:
     docker:
       - image: "circleci/node:lts-browsers"
     working_directory: ~/project
     steps:
-      - run: lighthouse-test
+      - attach_workspace:
+          at: ~/project
+      - lighthouse-test
   deploy:
     docker:
       - image: "circleci/node:lts"
