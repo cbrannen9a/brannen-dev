@@ -7,8 +7,8 @@
 		</clipPath>
 	</defs>
 	<title>earth</title>
-	<g id="Layer_2" data-name="Layer 2">
-		<g id="Layer_1-2" data-name="Layer 1">
+	<g id="earthLayer_2" data-name="Layer 2">
+		<g id="earthLayer_1-2" data-name="Layer 1">
 			<g id="earth">
 				<circle class="cls-2" cx="69.82" cy="69.82" r="69.82" transform="translate(-28.91 70.93) rotate(-45.64)"/>
 				<circle class="cls-1" cx="69.82" cy="69.82" r="60.9" transform="translate(-28.55 61.3) rotate(-40.05)"/>
