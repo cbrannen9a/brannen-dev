@@ -2,10 +2,9 @@ import React from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import Image from "gatsby-image";
-import PropTypes from "prop-types";
+import { buildImageObj } from "../../utils/helper";
+import { imageUrlFor } from "../../utils/imageUrl";
 
-import ExternalLink from "../elements/externalLink";
 import InternalLink from "../elements/internalLink";
 
 import styled from "styled-components";
@@ -31,56 +30,31 @@ const StyledPreview = styled.div`
   }
 `;
 
-const PostPreview = ({ source, title, description, slug, imageData }) => {
-  switch (source) {
-    case "medium":
-      return (
-        <StyledPreview>
-          <a href={slug}>
-            <img src={imageData} alt={title} width="150" />
-          </a>
-          <h2>
-            <a href={slug}>{title}</a>
-          </h2>
-          <ExternalLink colour="link" to={slug}>
-            <Icon icon={faEye} />
-            View on Medium
-          </ExternalLink>
-          <p>{description}</p>
-        </StyledPreview>
-      );
-    case "sanity":
-      return (
-        <StyledPreview>
-          <Link to={slug}>
-            <Image
-              fluid={imageData}
-              alt={title}
-              style={{ width: "150px", margin: "auto" }}
-            />
-          </Link>
-          <h2>
-            <Link to={slug}>{title}</Link>
-          </h2>
-          <InternalLink colour="link" to={slug}>
-            <Icon icon={faEye} />
-            View
-          </InternalLink>
-          <p>{description}</p>
-        </StyledPreview>
-      );
-    default:
-      return null;
-  }
-};
-
-PostPreview.propTypes = {
-  source: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  imageData: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-    .isRequired,
-  description: PropTypes.string.isRequired
+const PostPreview = ({ title, description, slug, mainImage }) => {
+  return (
+    <StyledPreview>
+      <Link to={`/${slug.current}/`}>
+        {mainImage && mainImage.asset && (
+          <img
+            src={imageUrlFor(buildImageObj(mainImage))
+              .width(300)
+              .height(Math.floor((9 / 16) * 300))
+              .auto("format")
+              .url()}
+            alt={title}
+          />
+        )}
+      </Link>
+      <h2>
+        <Link to={`/${slug.current}/`}>{title}</Link>
+      </h2>
+      <InternalLink colour="link" to={`/${slug.current}/`}>
+        <Icon icon={faEye} />
+        View
+      </InternalLink>
+      <p>{description}</p>
+    </StyledPreview>
+  );
 };
 
 export default PostPreview;

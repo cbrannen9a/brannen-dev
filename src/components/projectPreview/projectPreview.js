@@ -1,10 +1,7 @@
 import React from "react";
-
-import PropTypes from "prop-types";
-
+import { buildImageObj } from "../../utils/helper";
+import { imageUrlFor } from "../../utils/imageUrl";
 import { Link } from "gatsby";
-
-import Image from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Skills from "../skills/skills";
@@ -33,11 +30,37 @@ const StyledPreview = styled.div`
   }
 `;
 
-const ProjectPreview = ({ title, description, slug, imageData, skills }) => (
+const LeadMediaThumb = styled.div`
+  position: relative;
+  padding-bottom: 66.666%;
+  background: lightgray;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const ProjectPreview = ({ title, description, slug, mainImage, skills }) => (
   <StyledPreview>
-    <Link to={`/${slug}/`}>
-      <Image fluid={imageData} alt={title} />
-    </Link>
+    <LeadMediaThumb>
+      <Link to={`/${slug}/`}>
+        {mainImage && mainImage.asset && (
+          <img
+            src={imageUrlFor(buildImageObj(mainImage))
+              .width(600)
+              .height(Math.floor((9 / 16) * 600))
+              .auto("format")
+              .url()}
+            alt={title}
+          />
+        )}
+      </Link>
+    </LeadMediaThumb>
     <h2>
       <Link to={`/${slug}/`}>{title}</Link>
     </h2>
@@ -49,13 +72,5 @@ const ProjectPreview = ({ title, description, slug, imageData, skills }) => (
     <Skills skills={skills} light={true} />
   </StyledPreview>
 );
-
-ProjectPreview.propTypes = {
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  imageData: PropTypes.object.isRequired,
-  description: PropTypes.string.isRequired,
-  skills: PropTypes.array.isRequired
-};
 
 export default ProjectPreview;

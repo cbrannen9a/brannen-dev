@@ -1,51 +1,72 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
-import Layout from '../components/layout/layout';
-import SEO from '../components/seo';
-import ProjectGrid from '../components/projectGrid/projectGrid';
+import Layout from "../components/layout/layout";
+import SEO from "../components/seo";
+import ProjectGrid from "../components/projectGrid/projectGrid";
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../utils/helper";
 
-const Projects = () => {
-    const data = useStaticQuery(graphql`
-        {
-            allSanityProject(sort: { fields: [publishedAt], order: DESC }) {
-                edges {
-                    node {
-                        title
-                        slug {
-                            current
-                        }
-                        description
-                        url
-                        skills {
-                            id
-                            title
-                            _rawDescription
-                        }
-                        mainImage {
-                            asset {
-                                fluid {
-                                    ...GatsbySanityImageFluid
-                                }
-                            }
-                        }
-                    }
-                }
+export const query = graphql`
+  query ProjectPageQuery {
+    projects: allSanityProject(
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
             }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+          }
+          title
+          skills {
+            id
+            title
+            _rawDescription
+          }
+          url
+          description
+          slug {
+            current
+          }
         }
-    `);
+      }
+    }
+  }
+`;
 
-    const projects = data.allSanityProject.edges;
+const Projects = (props) => {
+  const { data } = props;
 
-    return (
-        <Layout>
-            <SEO
-                title='Projects'
-                keywords={['gatsby', 'application', 'react']}
-            />
-            <ProjectGrid projects={projects} />
-        </Layout>
-    );
+  const projects = (data || {}).projects
+    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    : [];
+
+  return (
+    <Layout>
+      <SEO title="Projects" keywords={["gatsby", "application", "react"]} />
+      <ProjectGrid projects={projects} />
+    </Layout>
+  );
 };
 
 export default Projects;
