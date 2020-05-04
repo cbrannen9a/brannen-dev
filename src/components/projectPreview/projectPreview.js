@@ -48,7 +48,7 @@ const LeadMediaThumb = styled.div`
 const ProjectPreview = ({ title, description, slug, mainImage, skills }) => (
   <StyledPreview>
     <LeadMediaThumb>
-      <Link to={`/${slug}/`}>
+      <Link to={`/${slug.current}/`}>
         {mainImage && mainImage.asset && (
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -62,9 +62,9 @@ const ProjectPreview = ({ title, description, slug, mainImage, skills }) => (
       </Link>
     </LeadMediaThumb>
     <h2>
-      <Link to={`/${slug}/`}>{title}</Link>
+      <Link to={`/${slug.current}/`}>{title}</Link>
     </h2>
-    <InternalLink colour="link" to={`/${slug}/`}>
+    <InternalLink colour="link" to={`/${slug.current}/`}>
       <Icon icon={faEye} />
       View
     </InternalLink>
