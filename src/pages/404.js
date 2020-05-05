@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import firebase from "gatsby-plugin-firebase";
 import Title from "../components/elements/title";
 
 import Layout from "../components/layout/layout";
@@ -22,35 +22,44 @@ const StyledHero = styled.div`
   flex-shrink: 0;
 `;
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <StyledHero>
-      <Title>Lost in space</Title>
-      <Title subtitle>
-        Oh no! Unable to find that planet...
-        <InternalLink to={"/"} colour={"link"} rounded="true">
-          Head Home
-        </InternalLink>
-      </Title>
-      <div className="objects">
-        <Rocket className="rocket" />
-        <Earth className="earth" />
-        <Moon className="moon" />
-      </div>
-      <div className="stars">
-        <div className="glowing_stars">
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
-          <div className="star" />
+const NotFoundPage = () => {
+  useEffect(() => {
+    if (!firebase) {
+      return;
+    }
+    firebase.analytics().logEvent("404: Not Found");
+  }, []);
+
+  return (
+    <Layout>
+      <SEO title="404: Not found" />
+      <StyledHero>
+        <Title>Lost in space</Title>
+        <Title subtitle>
+          Oh no! Unable to find that planet...
+          <InternalLink to={"/"} colour={"link"} rounded="true">
+            Head Home
+          </InternalLink>
+        </Title>
+        <div className="objects">
+          <Rocket className="rocket" />
+          <Earth className="earth" />
+          <Moon className="moon" />
         </div>
-      </div>
-    </StyledHero>
-  </Layout>
-);
+        <div className="stars">
+          <div className="glowing_stars">
+            <div className="star" />
+            <div className="star" />
+            <div className="star" />
+            <div className="star" />
+            <div className="star" />
+            <div className="star" />
+            <div className="star" />
+          </div>
+        </div>
+      </StyledHero>
+    </Layout>
+  );
+};
 
 export default NotFoundPage;
