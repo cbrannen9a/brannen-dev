@@ -21,6 +21,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-dev",
+      options: {
+        // This is your username on Dev.to
+        username: "cbrannen9a",
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {

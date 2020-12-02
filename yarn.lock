@@ -7839,6 +7839,14 @@ gatsby-remark-responsive-iframe@^2.3.4:
     lodash "^4.17.15"
     unist-util-visit "^1.4.1"
 
+gatsby-source-dev@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/gatsby-source-dev/-/gatsby-source-dev-0.1.4.tgz#ef8e696ed9b2ba4919d3cfd36a9fbcfe8db1fff5"
+  integrity sha512-dVZ45kdpNMh3w6z6zEEqjfdDSGplw0mryZSr13wz0SQZz+xgU+CiGRTDL1ukKkHX7NXH9S58OlNeKfdYlqTL5Q==
+  dependencies:
+    axios "^0.19.0"
+    query-string "^6.1.0"
+
 gatsby-source-filesystem@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.2.5.tgz#35f61218a46205e2b364bb9d333c72053d2a36bd"
@@ -14204,6 +14212,15 @@ query-string@^5.0.1:
     decode-uri-component "^0.2.0"
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
+
+query-string@^6.1.0:
+  version "6.13.7"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.7.tgz#af53802ff6ed56f3345f92d40a056f93681026ee"
+  integrity sha512-CsGs8ZYb39zu0WLkeOhe0NMePqgYdAuCqxOYKDR5LVCytDZYMGx3Bb+xypvQvPHVPijRXB0HZNFllCzHRe4gEA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
 
 query-string@^6.11.1:
   version "6.12.1"

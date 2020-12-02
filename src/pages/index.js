@@ -35,7 +35,6 @@ const Column = styled.div`
 `;
 
 export const query = graphql`
-
   query IndexPageQuery {
     author: sanityAuthor(name: { eq: "Chris Brannen" }) {
       name
@@ -83,6 +82,21 @@ export const query = graphql`
         }
       }
     }
+    devPosts: allDevArticles {
+      edges {
+        node {
+          article {
+            id
+            title
+            description
+            social_image
+            canonical_url
+            published_at
+          }
+        }
+      }
+    }
+
     projects: allSanityProject(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
@@ -147,8 +161,6 @@ export const query = graphql`
 const Home = (props) => {
   const { data, errors } = props;
 
- 
-
   const projects = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : [];
@@ -158,6 +170,13 @@ const Home = (props) => {
   const posts = (data || {}).posts
     ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
     : [];
+
+  const devPosts = (data || {}).devPosts
+    ? mapEdgesToNodes(data.devPosts, "node")
+    : [];
+  console.log(data.devPosts);
+  const allPosts = [...posts, ...devPosts];
+  console.log(allPosts);
 
   useEffect(() => {
     if (!firebase) {
@@ -172,7 +191,7 @@ const Home = (props) => {
       <Columns>
         <Column>
           <Welcome author={author} skills={skills} />
-          <PostGrid posts={posts} isMainPage />
+          <PostGrid posts={allPosts} isMainPage />
         </Column>
         <Column>
           <ProjectGrid projects={projects} isMainPage />

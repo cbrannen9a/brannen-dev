@@ -28,6 +28,7 @@
     "gatsby-remark-images": "^3.2.6",
     "gatsby-remark-prismjs": "^3.4.5",
     "gatsby-remark-responsive-iframe": "^2.3.4",
+    "gatsby-source-dev": "^0.1.4",
     "gatsby-source-filesystem": "^2.2.5",
     "gatsby-source-medium": "^2.2.4",
     "gatsby-source-sanity": "^5.0.6",
