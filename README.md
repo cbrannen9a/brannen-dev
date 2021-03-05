@@ -1,22 +1,34 @@
-<p align="center">
-  <a href="https://brannen.dev">
-    <img alt="Brannen.dev" src=".\assets\brannen-icon.png" width="60" />
-  </a>
-</p>
-<h1 align="center">
- 	Brannen.dev
-</h1>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Portfolio site for [brannen.dev](https://brannen.dev)
+## Getting Started
 
-This site uses [Gatsby](https://www.gatsbyjs.org/) and [Sanity.io](https://www.sanity.io/) it is deploy via [Firebase Hosting](https://firebase.google.com/) using [CircleCI](https://circleci.com/)
+First, run the development server:
 
-### Setup
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-This project is based on the [Gatsby-Starter-Blog](https://github.com/gatsbyjs/gatsby-starter-blog) and so has many of the starting scripts.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To get the develop server running just use `yarn develop` after dependencies are installed.
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-The Sanity.io project is available in a separate repo [here](https://github.com/cbrannen9a/brannen-dev-sanity)
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-🚀
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
