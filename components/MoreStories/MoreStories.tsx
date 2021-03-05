@@ -1,6 +1,7 @@
-import PostPreview from '../components/post-preview'
+import { FC } from "react";
+import PostPreview from "../PostPreview";
 
-export default function MoreStories({ posts }) {
+const MoreStories: FC<Props> = ({ posts }) => {
   return (
     <section>
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
@@ -20,5 +21,18 @@ export default function MoreStories({ posts }) {
         ))}
       </div>
     </section>
-  )
+  );
+};
+
+interface Props {
+  posts: {
+    slug: string;
+    title: string;
+    coverImage: any;
+    date: string;
+    author: { name: string; picture: any };
+    excerpt: string;
+  }[];
 }
+
+export default MoreStories;

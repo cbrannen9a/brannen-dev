@@ -1,8 +1,9 @@
+import { FC } from "react";
 import cn from "classnames";
 import Link from "next/link";
 import { urlForImage } from "@/lib/client";
 
-export default function CoverImage({ title, slug, image: source }) {
+const CoverImage: FC<Props> = ({ title, slug, image: source }) => {
   const image = source ? (
     <img
       width={2000}
@@ -28,4 +29,12 @@ export default function CoverImage({ title, slug, image: source }) {
       )}
     </div>
   );
+};
+
+interface Props {
+  title: string;
+  slug?: string;
+  image: any;
 }
+
+export default CoverImage;

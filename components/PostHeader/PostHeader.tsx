@@ -1,9 +1,10 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+import { FC } from "react";
+import Avatar from "../Avatar";
+import Date from "../Date";
+import CoverImage from "../CoverImage";
+import PostTitle from "../PostTitle";
 
-export default function PostHeader({ title, coverImage, date, author }) {
+const PostHeader: FC<Props> = ({ title, coverImage, date, author }) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -22,5 +23,14 @@ export default function PostHeader({ title, coverImage, date, author }) {
         </div>
       </div>
     </>
-  )
+  );
+};
+
+interface Props {
+  title: string;
+  coverImage: any;
+  date: string;
+  author: { name: string; picture: any };
 }
+
+export default PostHeader;

@@ -1,13 +1,17 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import { Content, Layout } from "@/components";
-import PostBody from "../../components/post-body";
-import MoreStories from "../../components/more-stories";
-import Header from "../../components/header";
-import PostHeader from "../../components/post-header";
-import SectionSeparator from "../../components/section-separator";
-import PostTitle from "../../components/post-title";
+import {
+  Content,
+  Layout,
+  MoreStories,
+  Header,
+  PostBody,
+  PostHeader,
+  SectionSeparator,
+  PostTitle,
+} from "@/components";
+
 import { CMS_NAME, urlForImage, usePreviewSubscription } from "@/lib/client";
 import { postQuery, postSlugsQuery } from "@/lib/common";
 

@@ -1,16 +1,17 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
-import Link from 'next/link'
+import { FC } from "react";
+import Link from "next/link";
+import Avatar from "../Avatar";
+import Date from "../Date";
+import CoverImage from "../CoverImage";
 
-export default function HeroPost({
+const HeroPost: FC<Props> = ({
   title,
   coverImage,
   date,
   excerpt,
   author,
   slug,
-}) {
+}) => {
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -33,5 +34,16 @@ export default function HeroPost({
         </div>
       </div>
     </section>
-  )
+  );
+};
+
+interface Props {
+  title: string;
+  coverImage: any;
+  date: string;
+  excerpt: string;
+  author: { name: string; picture: any };
+  slug: string;
 }
+
+export default HeroPost;

@@ -10,6 +10,7 @@
   "dependencies": {
     "@sanity/client": "^2.2.6",
     "@tailwindcss/forms": "^0.2.1",
+    "@types/classnames": "^2.2.11",
     "classnames": "^2.2.6",
     "date-fns": "^2.19.0",
     "next": "10.0.7",

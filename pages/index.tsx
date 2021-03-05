@@ -1,8 +1,5 @@
 import Head from "next/head";
-import { Content, Layout } from "@/components";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
+import { Content, Layout, MoreStories, HeroPost, Intro } from "@/components";
 
 import { CMS_NAME } from "@/lib/client";
 import { indexQuery } from "@/lib/common";

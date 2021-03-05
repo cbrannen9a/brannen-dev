@@ -1,16 +1,17 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from './cover-image'
-import Link from 'next/link'
+import { FC } from "react";
+import Avatar from "../Avatar";
+import Date from "../Date";
+import CoverImage from "../CoverImage";
+import Link from "next/link";
 
-export default function PostPreview({
+const PostPreview: FC<Props> = ({
   title,
   coverImage,
   date,
   excerpt,
   author,
   slug,
-}) {
+}) => {
   return (
     <div>
       <div className="mb-5">
@@ -27,5 +28,16 @@ export default function PostPreview({
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       <Avatar name={author.name} picture={author.picture} />
     </div>
-  )
+  );
+};
+
+interface Props {
+  title: string;
+  coverImage: any;
+  date: string;
+  excerpt: string;
+  author: { name: string; picture: any };
+  slug: string;
 }
+
+export default PostPreview;
