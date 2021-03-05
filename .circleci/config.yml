@@ -113,16 +113,16 @@ workflows:
             - dependencies
           filters:
             branches:
-              ignore: master
+              ignore: main
       - perf:
           requires:
             - build
           filters:
             branches:
-              ignore: master
+              ignore: main
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: master
+              only: main
