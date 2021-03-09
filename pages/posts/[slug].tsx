@@ -46,11 +46,11 @@ export default function Post({ data = {}, preview }) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                {post.coverImage && (
+                {post.mainImage && (
                   <meta
                     key="ogImage"
                     property="og:image"
-                    content={urlForImage(post.coverImage)
+                    content={urlForImage(post.mainImage)
                       .width(1200)
                       .height(627)
                       .fit("crop")
@@ -60,11 +60,11 @@ export default function Post({ data = {}, preview }) {
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.coverImage}
+                coverImage={post.mainImage}
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.body} />
             </article>
             <SectionSeparator />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}

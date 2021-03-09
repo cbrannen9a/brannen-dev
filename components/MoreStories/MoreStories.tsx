@@ -12,11 +12,11 @@ const MoreStories: FC<Props> = ({ posts }) => {
           <PostPreview
             key={post.slug}
             title={post.title}
-            coverImage={post.coverImage}
+            coverImage={post.mainImage}
             date={post.date}
             author={post.author}
             slug={post.slug}
-            excerpt={post.excerpt}
+            excerpt={post.description}
           />
         ))}
       </div>
@@ -28,10 +28,10 @@ interface Props {
   posts: {
     slug: string;
     title: string;
-    coverImage: any;
+    mainImage: any;
     date: string;
     author: { name: string; picture: any };
-    excerpt: string;
+    description: string;
   }[];
 }
 
