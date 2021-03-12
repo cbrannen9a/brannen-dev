@@ -16,8 +16,16 @@ const postFields = `
 `;
 
 export const indexQuery = `
-*[_type == "post"] | order(date desc, _updatedAt desc) {
-  ${postFields}
+{
+  "siteSettings":*[_type == "siteSettings" && _id == "siteSettings"] {
+    ...
+  }, 
+  "homePage":*[_type =="page" && title == "Home"]|[0] {
+    ...
+  },
+  "allPosts": *[_type == "post"] | order(date desc, _updatedAt desc) {
+    ${postFields}
+  }
 }`;
 
 export const postQuery = `

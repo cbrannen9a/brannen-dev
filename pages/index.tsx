@@ -1,32 +1,26 @@
 import Head from "next/head";
-import { Content, Layout, MoreStories, HeroPost, Intro } from "@/components";
+import { Content, Layout, MoreStories, HeroPost } from "@/components";
 
-import { CMS_NAME } from "@/lib/client";
 import { indexQuery } from "@/lib/common";
 import { getClient, overlayDrafts } from "@/lib/server";
 
-export default function Index({ allPosts, preview }) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+export default function Index({ allPosts, siteSettings, homePage, preview }) {
+  console.log(homePage);
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Brannen.dev</title>
         </Head>
         <Content>
-          <Intro />
-          {heroPost && (
+          {homePage && (
             <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
+              title={homePage.title}
+              coverImage={homePage.mainImage}
+              body={homePage.body}
             />
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
         </Content>
       </Layout>
     </>
@@ -34,8 +28,10 @@ export default function Index({ allPosts, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = overlayDrafts(await getClient(preview).fetch(indexQuery));
+  const { allPosts, siteSettings, homePage } = await getClient(preview).fetch(
+    indexQuery
+  );
   return {
-    props: { allPosts, preview },
+    props: { allPosts, siteSettings, homePage, preview },
   };
 }

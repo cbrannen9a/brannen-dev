@@ -1,4 +1,3 @@
-export { default as Alert } from "./Alert";
 export { default as Avatar } from "./Avatar";
 export { default as Content } from "./Content";
 export { default as CoverImage } from "./CoverImage";
@@ -6,7 +5,6 @@ export { default as Date } from "./Date";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as HeroPost } from "./HeroPost";
-export { default as Intro } from "./Intro";
 export { default as Layout } from "./Layout";
 export { default as Meta } from "./Meta";
 export { default as MoreStories } from "./MoreStories";

@@ -3,35 +3,21 @@ import Link from "next/link";
 import Avatar from "../Avatar";
 import Date from "../Date";
 import CoverImage from "../CoverImage";
+import BlockContent from "@sanity/block-content-to-react";
 
 const HeroPost: FC<Props> = ({
   title,
   coverImage,
-  date,
-  excerpt,
-  author,
+
+  body,
+
   slug,
 }) => {
   return (
     <section>
-      <div className="mb-8 md:mb-16">
+      <div className="m-8">
         <CoverImage slug={slug} title={title} image={coverImage} />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="hover:underline">{title}</a>
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
-          </div>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
+        <BlockContent blocks={body} />
       </div>
     </section>
   );
@@ -41,7 +27,7 @@ interface Props {
   title: string;
   coverImage: any;
   date: string;
-  excerpt: string;
+  body: [];
   author: { name: string; picture: any };
   slug: string;
 }

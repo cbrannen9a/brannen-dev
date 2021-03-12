@@ -12,7 +12,7 @@ import {
   PostTitle,
 } from "@/components";
 
-import { CMS_NAME, urlForImage, usePreviewSubscription } from "@/lib/client";
+import { SITE_TITLE, urlForImage, usePreviewSubscription } from "@/lib/client";
 import { postQuery, postSlugsQuery } from "@/lib/common";
 
 import { sanityClient, getClient, overlayDrafts } from "@/lib/server";
@@ -44,7 +44,7 @@ export default function Post({ data = {}, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | {SITE_TITLE}
                 </title>
                 {post.mainImage && (
                   <meta
