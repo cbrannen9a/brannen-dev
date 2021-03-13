@@ -4,8 +4,7 @@ import React, { FC } from "react";
 const Ctas: FC<Props> = ({ ctas }) => (
   <>
     {ctas &&
-      ctas.map((cta) => {
-        return cta?.type === "secondary" ? (
+      ctas.map((cta) => cta?.type === "secondary" ? (
           <div key={cta.title} className="mt-3 sm:mt-0 sm:ml-3">
             <a
               href={cta.link}
@@ -23,8 +22,7 @@ const Ctas: FC<Props> = ({ ctas }) => (
               {cta.title}
             </a>
           </div>
-        );
-      })}
+        ))}
   </>
 );
 

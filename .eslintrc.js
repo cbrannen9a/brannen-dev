@@ -1,38 +1,14 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-  extends: [
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier",
-    "prettier/@typescript-eslint",
-  ],
-  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: ["airbnb-typescript", "prettier"],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 12,
-    sourceType: "module",
+    project: "./tsconfig.json",
   },
-  plugins: ["react", "@typescript-eslint"],
   rules: {
-    "react/jsx-filename-extension": [
-      2,
-      { extensions: [".js", ".jsx", ".ts", ".tsx"] },
-    ],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { ignoreRestSiblings: true },
-    ],
+    "react/prop-types": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-props-no-spreading": 0,
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

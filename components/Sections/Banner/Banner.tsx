@@ -1,6 +1,6 @@
 import { CTA } from "@/types";
 import React, { FC } from "react";
-import { Ctas } from "../Common";
+import Ctas from "../Common";
 
 const Banner: FC<Props> = ({ heading, subHeading, ctas }) => (
   <div className="bg-gray-50">

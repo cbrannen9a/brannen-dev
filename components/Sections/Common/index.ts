@@ -1,1 +1,1 @@
-export { default as Ctas } from "./Ctas";
+export { default } from "./Ctas";

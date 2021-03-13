@@ -9,7 +9,7 @@ import {
 } from "@/components";
 
 import { indexQuery } from "@/lib/common";
-import { getClient, overlayDrafts } from "@/lib/server";
+import { getClient } from "@/lib/server";
 
 export default function Index({ allPosts, siteSettings, homePage, preview }) {
   const { content } = homePage;
@@ -44,6 +44,8 @@ export default function Index({ allPosts, siteSettings, homePage, preview }) {
                     ctas={item.ctas}
                   />
                 );
+              default:
+                return null;
             }
           })}
           {allPosts.length > 0 && <MoreStories posts={allPosts} />}

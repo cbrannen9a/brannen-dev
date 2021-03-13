@@ -1,8 +1,7 @@
 import { FC } from "react";
 import PostPreview from "../PostPreview";
 
-const MoreStories: FC<Props> = ({ posts }) => {
-  return (
+const MoreStories: FC<Props> = ({ posts }) => (
     <section>
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
         Posts
@@ -21,7 +20,6 @@ const MoreStories: FC<Props> = ({ posts }) => {
       </div>
     </section>
   );
-};
 
 interface Props {
   posts: {

@@ -2,7 +2,7 @@ import { CTA, SanityBlockContent } from "@/types";
 import React, { FC } from "react";
 import Image from "next/image";
 import BlockContent from "@sanity/block-content-to-react";
-import { Ctas } from "../Common";
+import Ctas from "../Common";
 
 const Hero: FC<Props> = ({ heading, subHeading, tagline, ctas, image }) => (
   <div className="max-w-7xl mx-auto relative bg-white overflow-hidden p-1 sm:p-4">

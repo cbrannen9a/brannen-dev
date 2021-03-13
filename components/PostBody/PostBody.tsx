@@ -1,9 +1,9 @@
 import { FC } from "react";
-import markdownStyles from "./markdown-styles.module.css";
+import { sanityClient } from "@/lib/client";
 import BlockContent from "@sanity/block-content-to-react";
+import markdownStyles from "./markdown-styles.module.css";
 import CodeBlock from "./CodeBlock";
 import Figure from "./Figure";
-import sanityClient from "lib/client/sanityClient";
 
 const serializers = {
   types: {
@@ -13,25 +13,21 @@ const serializers = {
       } = props;
       return <CodeBlock language={language}>{code}</CodeBlock>;
     },
-    figure: (props) => {
-      return <Figure {...props} />;
-    },
+    figure: (props) => <Figure {...props} />,
   },
 };
 
-const PostBody: FC<Props> = ({ content }) => {
-  return (
-    <div className="max-w-2xl mx-auto">
-      <BlockContent
-        blocks={content}
-        className={markdownStyles.markdown}
-        serializers={serializers}
-        imageOptions={{ w: 320, h: 240, fit: "max" }}
-        {...sanityClient.config()}
-      />
-    </div>
-  );
-};
+const PostBody: FC<Props> = ({ content }) => (
+  <div className="max-w-2xl mx-auto">
+    <BlockContent
+      blocks={content}
+      className={markdownStyles.markdown}
+      serializers={serializers}
+      imageOptions={{ w: 320, h: 240, fit: "max" }}
+      {...sanityClient.config()}
+    />
+  </div>
+);
 
 interface Props {
   content: [];

@@ -8,7 +8,7 @@ const CoverImage: FC<Props> = ({ title, slug, image: source }) => {
     <img
       width={2000}
       height={1000}
-      alt={`Cover Image for ${title}`}
+      alt={`${title}`}
       className={cn("shadow-small", {
         "hover:shadow-medium transition-shadow duration-200": slug,
       })}

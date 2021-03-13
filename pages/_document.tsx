@@ -4,7 +4,9 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <link rel="shortcut icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />

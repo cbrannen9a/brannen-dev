@@ -20,7 +20,7 @@ const toColors = [
 ];
 
 const Card: FC<Props> = ({ title, text, cta, colorIndex, enabled }) => (
-  <div className={`w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg`}>
+  <div className="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">
     <a className="w-full flex" href={cta.link}>
       <div
         className={`w-full flex md:flex-col bg-gradient-to-br ${

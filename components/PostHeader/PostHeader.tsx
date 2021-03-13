@@ -4,8 +4,7 @@ import Date from "../Date";
 import CoverImage from "../CoverImage";
 import PostTitle from "../PostTitle";
 
-const PostHeader: FC<Props> = ({ title, coverImage, date }) => {
-  return (
+const PostHeader: FC<Props> = ({ title, coverImage, date }) => (
     <>
       <PostTitle>{title}</PostTitle>
 
@@ -19,7 +18,6 @@ const PostHeader: FC<Props> = ({ title, coverImage, date }) => {
       </div>
     </>
   );
-};
 
 interface Props {
   title: string;

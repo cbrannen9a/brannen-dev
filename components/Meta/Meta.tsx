@@ -2,8 +2,7 @@ import { FC } from "react";
 import Head from "next/head";
 import { HOME_OG_IMAGE_URL } from "@/lib/client";
 
-const Meta: FC = () => {
-  return (
+const Meta: FC = () => (
     <Head>
       <link
         rel="apple-touch-icon"
@@ -33,10 +32,9 @@ const Meta: FC = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="description" content={`.`} />
+      <meta name="description" content="." />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} key="ogImage" />
     </Head>
   );
-};
 
 export default Meta;
