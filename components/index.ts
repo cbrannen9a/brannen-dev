@@ -13,4 +13,5 @@ export { default as PostBody } from "./PostBody";
 export { default as PostHeader } from "./PostHeader";
 export { default as PostPreview } from "./PostPreview";
 export { default as PostTitle } from "./PostTitle";
+export { Cards, Hero, Banner } from "./Sections";
 export { default as SectionSeparator } from "./SectionSeparator";

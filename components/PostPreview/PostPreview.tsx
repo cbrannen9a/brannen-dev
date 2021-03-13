@@ -4,14 +4,7 @@ import Date from "../Date";
 import CoverImage from "../CoverImage";
 import Link from "next/link";
 
-const PostPreview: FC<Props> = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}) => {
+const PostPreview: FC<Props> = ({ title, coverImage, date, excerpt, slug }) => {
   return (
     <div>
       <div className="mb-5">
@@ -26,7 +19,6 @@ const PostPreview: FC<Props> = ({
         <Date dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   );
 };
@@ -36,7 +28,6 @@ interface Props {
   coverImage: any;
   date: string;
   excerpt: string;
-  author: { name: string; picture: any };
   slug: string;
 }
 

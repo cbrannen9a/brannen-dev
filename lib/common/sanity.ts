@@ -12,7 +12,6 @@ const postFields = `
   description,
   mainImage,
   "slug": slug.current,
-  "author": author->{name, picture},
 `;
 
 export const indexQuery = `

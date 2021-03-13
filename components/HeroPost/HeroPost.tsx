@@ -28,7 +28,6 @@ interface Props {
   coverImage: any;
   date: string;
   body: [];
-  author: { name: string; picture: any };
   slug: string;
 }
 

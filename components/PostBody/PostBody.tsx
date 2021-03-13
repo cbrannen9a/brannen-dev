@@ -20,7 +20,6 @@ const serializers = {
 };
 
 const PostBody: FC<Props> = ({ content }) => {
-  console.log(content);
   return (
     <div className="max-w-2xl mx-auto">
       <BlockContent

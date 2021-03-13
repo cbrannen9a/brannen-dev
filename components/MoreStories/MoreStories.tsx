@@ -14,7 +14,6 @@ const MoreStories: FC<Props> = ({ posts }) => {
             title={post.title}
             coverImage={post.mainImage}
             date={post.date}
-            author={post.author}
             slug={post.slug}
             excerpt={post.description}
           />
@@ -30,7 +29,6 @@ interface Props {
     title: string;
     mainImage: any;
     date: string;
-    author: { name: string; picture: any };
     description: string;
   }[];
 }
