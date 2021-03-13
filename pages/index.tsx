@@ -6,12 +6,19 @@ import {
   Hero,
   Cards,
   Banner,
+  Social,
 } from "@/components";
 
 import { indexQuery } from "@/lib/common";
 import { getClient } from "@/lib/server";
 
-export default function Index({ allPosts, siteSettings, homePage, preview }) {
+export default function Index({
+  allPosts,
+  allProjects,
+  siteSettings,
+  homePage,
+  preview,
+}) {
   const { content } = homePage;
   return (
     <>
@@ -44,11 +51,14 @@ export default function Index({ allPosts, siteSettings, homePage, preview }) {
                     ctas={item.ctas}
                   />
                 );
+              case "social":
+                return <Social key={item._key} social={item.social} />;
               default:
                 return null;
             }
           })}
           {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+          {allProjects.length > 0 && <MoreStories posts={allProjects} />}
         </Content>
       </Layout>
     </>
@@ -56,10 +66,10 @@ export default function Index({ allPosts, siteSettings, homePage, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const { allPosts, siteSettings, homePage } = await getClient(preview).fetch(
-    indexQuery
-  );
+  const { allPosts, allProjects, siteSettings, homePage } = await getClient(
+    preview
+  ).fetch(indexQuery);
   return {
-    props: { allPosts, siteSettings, homePage, preview },
+    props: { allPosts, allProjects, siteSettings, homePage, preview },
   };
 }

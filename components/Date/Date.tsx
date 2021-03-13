@@ -1,9 +1,12 @@
 import { FC } from "react";
-import { parseISO } from "date-fns";
+import { parseISO, format } from "date-fns";
 
 const Date: FC<Props> = ({ dateString }) => {
-  const date = parseISO(dateString);
-  return <div>{date.toDateString()}</div>;
+  if (!dateString) {
+    return null;
+  }
+  const date = format(parseISO(dateString), "do MMM yyyy");
+  return <div>{date}</div>;
 };
 
 interface Props {

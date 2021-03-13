@@ -12,7 +12,7 @@ const Header: FC<Props> = ({ title = SITE_TITLE }) => (
 );
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 export default Header;

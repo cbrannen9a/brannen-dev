@@ -4,14 +4,23 @@ export const sanityConfig = {
   useCdn: process.env.NODE_ENV === "production",
 };
 
-const postFields = `
+const commonFields = `
   _id,
   name,
   title,
-  date,
   description,
   mainImage,
   "slug": slug.current,
+`;
+
+const postFields = `
+  publishedAt,
+  ${commonFields}
+`;
+
+const projectFields = `
+  "skills":skills[]->,
+  ${commonFields}
 `;
 
 export const indexQuery = `
@@ -22,9 +31,12 @@ export const indexQuery = `
   "homePage":*[_type =="page" && title == "Home"]|[0] {
     ...
   },
-  "allPosts": *[_type == "post"] | order(date desc, _updatedAt desc) {
+  "allPosts": *[_type == "post"] | order(publishedAt desc, _updatedAt desc) {
     ${postFields}
-  }
+  },
+  "allProjects":*[_type == "project"] | order(publishedAt desc, _updatedAt desc) {
+    ${projectFields}
+  },
 }`;
 
 export const postQuery = `

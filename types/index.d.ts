@@ -50,7 +50,22 @@ export interface BannerContent extends BaseContent {
   subHeading: string;
 }
 
-export type Content = HeroContent | CardsContent | BannerContent;
+export interface SocialContent extends BaseContent {
+  _type: "social";
+  social: SocialLink[];
+}
+
+export type SocialLink = {
+  link: string;
+  title: string;
+  _key: string;
+};
+
+export type Content =
+  | HeroContent
+  | CardsContent
+  | BannerContent
+  | SocialContent;
 
 export type SanityBlockContent = BlockContent[];
 
