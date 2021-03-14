@@ -4,12 +4,12 @@ import ErrorPage from "next/error";
 import {
   Content,
   Layout,
-  MoreStories,
   Header,
   PostBody,
   PostHeader,
   SectionSeparator,
   PostTitle,
+  ContentPreview,
 } from "@/components";
 
 import { SITE_TITLE, urlForImage, usePreviewSubscription } from "@/lib/client";
@@ -66,7 +66,9 @@ export default function Post({ data = {}, preview }) {
               <PostBody content={post.body} />
             </article>
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            {morePosts.length > 0 && (
+              <ContentPreview content={morePosts} title="More Posts" />
+            )}
           </>
         )}
       </Content>

@@ -6,6 +6,7 @@ export const sanityConfig = {
 
 const commonFields = `
   _id,
+  _type,
   name,
   title,
   description,

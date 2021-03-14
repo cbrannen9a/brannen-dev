@@ -2,11 +2,11 @@ import Head from "next/head";
 import {
   Content,
   Layout,
-  MoreStories,
   Hero,
   Cards,
   Banner,
   Social,
+  ContentPreview,
 } from "@/components";
 
 import { indexQuery } from "@/lib/common";
@@ -57,8 +57,12 @@ export default function Index({
                 return null;
             }
           })}
-          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
-          {allProjects.length > 0 && <MoreStories posts={allProjects} />}
+          {allPosts.length > 0 && (
+            <ContentPreview content={allPosts} title="Posts" />
+          )}
+          {allProjects.length > 0 && (
+            <ContentPreview content={allProjects} title="Projects" />
+          )}
         </Content>
       </Layout>
     </>

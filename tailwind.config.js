@@ -15,6 +15,7 @@ module.exports = {
   variants: {
     extend: {
       opacity: ["disabled"],
+      textDecoration: ["focus-visible"],
     },
   },
   plugins: [require("@tailwindcss/forms")],

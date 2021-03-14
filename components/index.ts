@@ -1,5 +1,6 @@
 export { default as Avatar } from "./Avatar";
 export { default as Content } from "./Content";
+export { default as ContentPreview } from "./ContentPreview";
 export { default as CoverImage } from "./CoverImage";
 export { default as Date } from "./Date";
 export { default as Footer } from "./Footer";
@@ -7,11 +8,9 @@ export { default as Header } from "./Header";
 export { default as Icon } from "./Icon";
 export { default as Layout } from "./Layout";
 export { default as Meta } from "./Meta";
-export { default as MoreStories } from "./MoreStories";
 export { default as Page } from "./Page";
 export { default as PostBody } from "./PostBody";
 export { default as PostHeader } from "./PostHeader";
-export { default as PostPreview } from "./PostPreview";
 export { default as PostTitle } from "./PostTitle";
 export { Cards, Hero, Banner, Social } from "./Sections";
 export { default as SectionSeparator } from "./SectionSeparator";

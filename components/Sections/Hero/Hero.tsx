@@ -13,13 +13,15 @@ const Hero: FC<Props> = ({ heading, subHeading, tagline, ctas, image }) => (
             <span className="block xl:inline">{heading}</span>
             <span className="block text-blue-600 xl:inline">{subHeading}</span>
           </h1>
-          <div className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+          <div className="mb-2 sm:mb-0 mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
             <BlockContent blocks={tagline} />
           </div>
 
-          <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <Ctas ctas={ctas} />
-          </div>
+          {ctas && (
+            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+              <Ctas ctas={ctas} />
+            </div>
+          )}
         </div>
       </div>
     </>
@@ -42,8 +44,8 @@ interface Props {
   heading: string;
   subHeading: string;
   tagline: SanityBlockContent;
-  ctas: CTA[];
-  image: {
+  ctas?: CTA[];
+  image?: {
     alt: string;
     asset: {
       url: string;

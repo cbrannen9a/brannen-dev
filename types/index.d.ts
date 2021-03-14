@@ -69,7 +69,7 @@ export type Content =
 
 export type SanityBlockContent = BlockContent[];
 
-type BlockContent = {
+export type BlockContent = {
   _key: string;
   _type: string;
   children: BlockContentChildren[];
@@ -77,9 +77,31 @@ type BlockContent = {
   style: string;
 };
 
-type BlockContentChildren = {
+export type BlockContentChildren = {
   _key: string;
   _type: string;
   marks: [];
   text: string;
 };
+
+export interface CommonContentItem {
+  _id: string;
+  name: string;
+  title: string;
+  description: string;
+  mainImage: any;
+  slug: string;
+}
+export interface PostContentItem extends CommonContentItem {
+  _type: "post";
+  publishedAt: string;
+}
+
+export interface ProjectContentItem extends CommonContentItem {
+  _type: "project";
+  skills: SkillItem[];
+}
+
+export type SkillItem = { title: string; description: SanityBlockContent };
+
+export type ContentItem = PostContentItem | ProjectContentItem;
