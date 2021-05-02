@@ -32,10 +32,10 @@ export const indexQuery = `
   "homePage":*[_type =="page" && title == "Home"]|[0] {
     ...
   },
-  "allPosts": *[_type == "post"] | order(publishedAt desc, _updatedAt desc) {
+  "allPosts": *[_type == "post" && !(_id in path('drafts.**'))] | order(publishedAt desc, _updatedAt desc) {
     ${postFields}
   },
-  "allProjects":*[_type == "project"] | order(publishedAt desc, _updatedAt desc) {
+  "allProjects":*[_type == "project" && !(_id in path('drafts.**'))] | order(publishedAt desc, _updatedAt desc) {
     ${projectFields}
   },
 }`;

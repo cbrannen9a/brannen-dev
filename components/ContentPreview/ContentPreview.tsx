@@ -4,10 +4,13 @@ import { FC } from "react";
 
 const ContentPreview: FC<Props> = ({ content, title }) => (
   <section>
-    <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-      {title}
+    <h2 className="uppercase mx-8 my-3">
+      <span className="text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
+        {title.slice(0, 1)}
+      </span>
+      <span className="text-2xl md:text-2xl font-bold">{title.slice(1)}</span>
     </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32">
+    <div className="grid grid-cols-1 mt-2 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-16">
       {content.map((post) => (
         <ContentPreviewItem
           key={post.slug}

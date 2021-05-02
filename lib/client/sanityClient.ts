@@ -1,5 +1,5 @@
 import sanityClient from "@sanity/client";
-import { sanityConfig } from "lib/common/sanity";
+import { sanityConfig } from "@/lib/common";
 import {
   createImageUrlBuilder,
   createPreviewSubscriptionHook,

@@ -6,7 +6,7 @@ const Date: FC<Props> = ({ dateString }) => {
     return null;
   }
   const date = format(parseISO(dateString), "do MMM yyyy");
-  return <div>{date}</div>;
+  return <div className="text-sm text-gray-500">{date}</div>;
 };
 
 interface Props {

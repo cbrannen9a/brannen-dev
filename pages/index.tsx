@@ -1,6 +1,5 @@
 import Head from "next/head";
 import {
-  Content,
   Layout,
   Hero,
   Cards,
@@ -26,7 +25,7 @@ export default function Index({
         <Head>
           <title>{siteSettings.title}</title>
         </Head>
-        <Content>
+        <>
           {content.map((item) => {
             switch (item._type) {
               case "hero":
@@ -63,7 +62,7 @@ export default function Index({
           {allProjects.length > 0 && (
             <ContentPreview content={allProjects} title="Projects" />
           )}
-        </Content>
+        </>
       </Layout>
     </>
   );
